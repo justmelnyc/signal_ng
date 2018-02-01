@@ -14,7 +14,6 @@ import { SharedService } from '../../../_core/services/shared.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLogin = true;
   loginUser: ILoginInfo = {
     email: '',
     password: ''
@@ -41,11 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate() {
-    if (this.isLogin) {
-      this.formChecker = this.loginFormValidation();
-    } else {
-      this.formChecker = this.signUpFormValidation();
-    }
+    this.formChecker = this.loginFormValidation();
 
     if (this.formChecker.success) {
       this.authenticateUser();
@@ -54,11 +49,8 @@ export class LoginComponent implements OnInit {
 
   async authenticateUser() {
     try {
-      if (this.isLogin) {
-        await this.afAuth.auth.signInWithEmailAndPassword(this.loginUser.email, this.loginUser.password);
-      } else {
-        await this.afAuth.auth.createUserWithEmailAndPassword(this.newUser.email, this.newUser.password);
-      }
+      await this.afAuth.auth.signInWithEmailAndPassword(this.loginUser.email, this.loginUser.password);
+      // await this.afAuth.auth.createUserWithEmailAndPassword(this.loginUser.email, this.loginUser.password);
 
       const currentUser = await this.afAuth.auth.currentUser;
       const user: IUser = {
@@ -84,14 +76,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  toggleLoginMethod() {
-    this.formChecker = {
-      success: true,
-      msg: ''
-    };
-    this.isLogin = !this.isLogin;
-  }
-
   loginFormValidation()  {
     if (!this.loginUser.email || !this.loginUser.password) {
       return {success: false, msg: 'All fields are required'};
@@ -102,29 +86,6 @@ export class LoginComponent implements OnInit {
 
       if (!this.loginUser.password.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
         return {success: false, msg: 'Password must be at least 6 characters'};
-      }
-      return {success: true, msg: ''};
-    }
-  }
-
-  signUpFormValidation()  {
-    if (!this.newUser.email || !this.newUser.password || !this.newUser.confirm) {
-      return {success: false, msg: 'All fields are required'};
-    } else {
-      if (!this.newUser.email.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-        return {success: false, msg: 'Enter a valid email address'};
-      }
-
-      if (!this.newUser.password.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-        return {success: false, msg: 'Password must be at least 6 characters'};
-      }
-
-      if (!this.newUser.confirm.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-        return {success: false, msg: 'Password must be at least 6 characters'};
-      }
-
-      if (this.newUser.password !== this.newUser.confirm) {
-        return {success: false, msg: 'No match password.'};
       }
       return {success: true, msg: ''};
     }

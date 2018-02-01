@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SharedService } from '../../_core/services/shared.service';
+import { Router } from '@angular/router';
+
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
+
+import { SharedService } from '../../_core/services/shared.service';
 import { IReservation } from '../../_core/interfaces/reservation';
 import { IUser } from '../../_core/interfaces/user';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',

@@ -16,61 +16,26 @@
             <div class="overlay-content">Sign in to Medium to connect with voices and perspectives that matter.</div>
             <div class="overlay-actions buttonSet">
               <div class="buttonSet buttonSet--vertical">
-                <div *ngIf="isLogin">
-                  <form #loginForm="ngForm" (ngSubmit)="authenticate()">
-                    <input class="control-input"
-                           type="email"
-                           placeholder="email"
-                           [(ngModel)]="loginUser.email"
-                           required
-                           name="email">
-                    <input class="control-input"
-                           type="password"
-                           placeholder="password"
-                           [(ngModel)]="loginUser.password"
-                           required
-                           name="password">
-                    <p class="error-message" *ngIf="!formChecker.success">{{formChecker.msg}}</p>
-                    <button type="submit"
-                            class="button button--primary button--large button-login"
-                            [disabled]="!loginForm.form.valid">
-                      Login
-                    </button>
-                    <button type="button" class="button button--primary button--large button--chromeless button--link u-marginTop15" (click)="toggleLoginMethod()">
-                      Create a new account
-                    </button>
-                  </form>
-                </div>
-                <div class="sign-in-email-container" *ngIf="!isLogin">
-                  <form #signUpForm="ngForm" (ngSubmit)="authenticate()">
-                    <input class="control-input"
-                           type="email"
-                           placeholder="email"
-                           [(ngModel)]="newUser.email"
-                           required
-                           name="email">
-                    <input class="control-input"
-                           type="password"
-                           placeholder="password"
-                           [(ngModel)]="newUser.password"
-                           required
-                           name="password">
-                    <input class="control-input"
-                           type="password"
-                           placeholder="confirm password"
-                           [(ngModel)]="newUser.confirm"
-                           required
-                           name="confirm">
-                    <p class="error-message" *ngIf="!formChecker.success">{{formChecker.msg}}</p>
-                    <button type="submit" class="button button--primary button--large button-login"
-                            [disabled]="!signUpForm.form.valid">
-                      SignUp
-                    </button>
-                    <button type="button" class="button button--primary button--large button--chromeless button--link u-marginTop15" (click)="toggleLoginMethod()">
-                      Login with existing user
-                    </button>
-                  </form>
-                </div>
+                <form #loginForm="ngForm" (ngSubmit)="authenticate()">
+                  <input class="control-input"
+                         type="email"
+                         placeholder="email"
+                         [(ngModel)]="loginUser.email"
+                         required
+                         name="email">
+                  <input class="control-input"
+                         type="password"
+                         placeholder="password"
+                         [(ngModel)]="loginUser.password"
+                         required
+                         name="password">
+                  <p class="error-message" *ngIf="!formChecker.success">{{formChecker.msg}}</p>
+                  <button type="submit"
+                          class="button button--primary button--large button-login"
+                          [disabled]="!loginForm.form.valid">
+                    Login
+                  </button>
+                </form>
               </div>
             </div>
           </div>

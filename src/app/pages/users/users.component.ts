@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SharedService } from '../../_core/services/shared.service';
+import { Router } from '@angular/router';
+
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
+
 import { IUser } from '../../_core/interfaces/user';
+import { SharedService } from '../../_core/services/shared.service';
 
 @Component({
   selector: 'app-users',
@@ -19,6 +22,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     private sharedService: SharedService,
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -77,5 +81,9 @@ export class UsersComponent implements OnInit, OnDestroy {
         console.log(e);
       }
     }
+  }
+
+  addUser() {
+    this.router.navigate(['/accounts/new']);
   }
 }

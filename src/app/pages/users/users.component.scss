@@ -7,3 +7,15 @@
   border-radius: 50%;
   width: 35px;
 }
+
+.add-account-container {
+  position: absolute;
+  right: 50px;
+  top: 100px;
+
+  button {
+    width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
