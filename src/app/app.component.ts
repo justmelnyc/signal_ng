@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition, query } from '@angular/animations';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { IUser } from './_core/interfaces/user';
 import { SharedService } from './_core/services/shared.service';
 
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    private adb: AngularFireDatabase,
     private sharedService: SharedService
   ) {}
 
@@ -49,8 +49,9 @@ export class AppComponent implements OnInit {
     try {
       await this.afAuth.authState.first().toPromise();
       const res = this.afAuth.auth.currentUser;
-      const user: IUser = await this.afs.doc(`users/${res.uid}`).valueChanges().first().toPromise() as IUser;
+      const user: IUser = await this.adb.object(`users/${res.uid}`).valueChanges().first().toPromise() as IUser;
       this.sharedService.storeUser(user);
+      console.log('loadUser');
     } catch (e) {
       this.sharedService.storeUser(null);
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -22,7 +22,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    private adb: AngularFireDatabase,
     private sharedService: SharedService,
     private router: Router
   ) { }
@@ -37,44 +37,42 @@ export class ReservationComponent implements OnInit, OnDestroy {
       if (!user) {
         await this.afAuth.authState.first().toPromise();
         this.uid = await this.afAuth.auth.currentUser.uid;
-        user = await this.afs.doc(`users/${this.uid}`).valueChanges().first().toPromise() as IUser;
+        user = await this.adb.object(`users/${this.uid}`).valueChanges().first().toPromise() as IUser;
         this.sharedService.storeUser(user);
       } else {
         this.uid = user.id;
       }
 
       if (user.admin) {
-        this.listing$ = this.afs.collection(`reservations`)
+        this.listing$ = this.adb.list(`reservations`)
           .snapshotChanges()
           .subscribe(items => {
             this.reservations = [];
             items.map(item => {
               const reservation: IReservation = {
-                $key: item.payload.doc.id,
-                email: item.payload.doc.data().email,
-                name: item.payload.doc.data().name,
-                userId: item.payload.doc.data().userId,
-                owner: item.payload.doc.data().owner,
-                reservationDate: item.payload.doc.data().reservationDate
+                $key: item.payload.val().id,
+                email: item.payload.val().email,
+                name: item.payload.val().name,
+                userId: item.payload.val().userId,
+                owner: item.payload.val().owner,
+                reservationDate: item.payload.val().reservationDate
               };
               this.reservations.push(reservation);
             });
           });
       } else {
-        this.listing$ = this.afs.collection(`reservations`, ref => {
-          return ref.where('userId', '==', this.uid);
-        })
+        this.listing$ = this.adb.list(`reservations`)
           .snapshotChanges()
           .subscribe(items => {
             this.reservations = [];
             items.map(item => {
               const reservation: IReservation = {
-                $key: item.payload.doc.id,
-                email: item.payload.doc.data().email,
-                name: item.payload.doc.data().name,
-                userId: item.payload.doc.data().userId,
-                owner: item.payload.doc.data().owner,
-                reservationDate: item.payload.doc.data().reservationDate
+                $key: item.payload.val().id,
+                email: item.payload.val().email,
+                name: item.payload.val().name,
+                userId: item.payload.val().userId,
+                owner: item.payload.val().owner,
+                reservationDate: item.payload.val().reservationDate
               };
               this.reservations.push(reservation);
             });
@@ -99,7 +97,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
 
   async deleteReservation(res: IReservation) {
     try {
-      await this.afs.doc(`reservations/${res.$key}`).delete();
+      await this.adb.object(`reservations/${res.$key}`).remove();
     } catch (e) {
       console.log(e);
     }

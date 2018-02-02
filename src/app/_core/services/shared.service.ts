@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SharedService {
@@ -26,9 +27,13 @@ export class SharedService {
   }
 
   createAccount(newUser) {
-    console.log(newUser);
-    return this.http.post(`${environment.firebase.cloudFunctionsURL}/addNewAccount`, newUser, {observe: 'response'}).map((x: any) => {
-      return x;
-    });
+    return this.http.post(`${environment.firebase.cloudFunctionsURL}/addNewAccount`, newUser, {observe: 'response'})
+      .map((response: any) => {
+        return response;
+      })
+      .catch(error => {
+        console.log(error);
+        return Observable.throw(error);
+      });
   }
 }

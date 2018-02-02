@@ -75,6 +75,8 @@ export class NewUserComponent implements OnInit {
     this.adb.list(`users`).push(newUser);
     this.sharedService.createAccount(newUser).subscribe(res => {
       console.log(res);
+    }, (err) => {
+
     });
   }
 
