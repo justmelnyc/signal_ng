@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   constructor(
     private sharedService: SharedService,
-    private afs: AngularFirestore,
+    private adb: AngularFireDatabase,
     private afAuth: AngularFireAuth,
     private router: Router
   ) { }
@@ -39,30 +39,29 @@ export class UsersComponent implements OnInit, OnDestroy {
       if (!user) {
         await this.afAuth.authState.first().toPromise();
         this.uid = await this.afAuth.auth.currentUser.uid;
-        user = await this.afs.doc(`users/${this.uid}`).valueChanges().first().toPromise() as IUser;
+        user = await this.adb.object(`users/${this.uid}`).valueChanges().first().toPromise() as IUser;
         this.sharedService.storeUser(user);
       } else {
         this.uid = user.id;
       }
 
       if (user.admin) {
-        this.listing$ = this.afs.collection(`users`, ref => {
-          return ref.where('admin', '==', false);
-        })
-          .snapshotChanges()
-          .subscribe(items => {
-            this.users = [];
-            items.map(item => {
+        this.listing$ = this.adb.list(`users`).snapshotChanges().subscribe(items => {
+          this.users = [];
+          items.map(item => {
+            if (item.payload.val().admin !== true) {
               const data: IUser = {
-                id: item.payload.doc.data().id,
-                email: item.payload.doc.data().email,
-                name: item.payload.doc.data().name,
-                admin: item.payload.doc.data().admin,
-                photo: item.payload.doc.data().photo
+                id: item.payload.val().id,
+                email: item.payload.val().email,
+                password: item.payload.val().password,
+                name: item.payload.val().name,
+                admin: item.payload.val().admin,
+                photo: item.payload.val().photo
               };
               this.users.push(data);
-            });
-          });
+            }
+          })
+        });
       }
     } catch (e) {
       console.log(e);
@@ -70,17 +69,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   async deleteUser(user: IUser) {
-    await this.afs.doc(`users/${user.id}`).delete();
-
-    const items = await this.afs.collection('reservations', ref => ref.where('userId', '==', user.id))
-      .snapshotChanges().first().toPromise();
-    for (const item of items) {
-      try {
-        await this.afs.doc(`reservations/${item.payload.doc.id}`).delete();
-      } catch (e) {
-        console.log(e);
-      }
-    }
+    await this.adb.object(`users/${user.id}`).remove();
   }
 
   addUser() {

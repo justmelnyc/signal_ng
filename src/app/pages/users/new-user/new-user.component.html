@@ -1,3 +1,45 @@
-<p>
-  new-user works!
-</p>
+<section class="hero is-danger is-medium header-image">
+  <div class="hero-body"></div>
+</section>
+
+<section class="section">
+  <div class="left-section">
+    <div class="avatar-container">
+      <img class="avatar">
+      <div class="uploader-container">
+
+      </div>
+    </div>
+  </div>
+  <div class="right-section">
+    <p class="has-text-left header">Profile</p>
+    <div class="columns content is-centered">
+      <form #newAccountForm="ngForm" (ngSubmit)="createAccount()">
+        <input class="control-input"
+               type="text"
+               placeholder="userName"
+               [(ngModel)]="newAccount.username"
+               required
+               name="username">
+        <input class="control-input"
+               type="email"
+               placeholder="email"
+               [(ngModel)]="newAccount.email"
+               required
+               name="email">
+        <input class="control-input"
+               type="password"
+               placeholder="password"
+               [(ngModel)]="newAccount.password"
+               required
+               name="password">
+        <p class="error-message" *ngIf="!formChecker.success">{{formChecker.msg}}</p>
+        <button type="submit"
+                class="button button--primary button--large button-login"
+                [disabled]="!newAccountForm.form.valid">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
