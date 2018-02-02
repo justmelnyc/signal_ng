@@ -72,10 +72,7 @@ export class NewUserComponent implements OnInit {
       admin: false
     };
 
-    // this.adb.list(`users`).push(newUser);
-    // const reqOptions = new RequestOptions({headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})});
-    // return this.http.post(`${environment.firebase.cloudFunctionsURL}/create-account`, JSON.stringify(newUser), reqOptions)
-    //   .map(x => x.json())
+    this.adb.list(`users`).push(newUser);
     this.sharedService.createAccount(newUser).subscribe(res => {
       console.log(res);
     });
