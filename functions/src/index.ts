@@ -13,6 +13,7 @@ routerNonAuth.use(cors);
 
 routerNonAuth.post('/create-account', (req, res) => {
   console.log('here is backend');
+  res.send(200, 'jikjiji');
   // admin.database().ref(`/reservations`).push(reservationObj).then(snapshot => {
   //   let reservationMessage = `Hi, Reservation have been made from ${req.user.name}. <br/>Below are details of the reservation. <br/><br/>User: ${req.user.name} <br/>Email: ${req.user.email}<br/>Service Type: ${reservationObj.type}<br/>Reservation Date:${reservationObj.reservationDate}<br/>Time: ${reservationObj.reservationTime}`;
   //   console.log('reservation message', reservationMessage);

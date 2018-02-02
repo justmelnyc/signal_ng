@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Http, RequestOptions, Headers } from '@angular/http';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -34,8 +33,7 @@ export class NewUserComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private adb: AngularFireDatabase,
     private afAuth: AngularFireAuth,
-    private sharedService: SharedService,
-    private http: Http
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -75,9 +73,12 @@ export class NewUserComponent implements OnInit {
     };
 
     // this.adb.list(`users`).push(newUser);
-    const reqOptions = new RequestOptions({headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})});
-    return this.http.post(`${environment.firebase.cloudFunctionsURL}/create-account`, JSON.stringify(newUser), reqOptions)
-      .map(x => x.json())
+    // const reqOptions = new RequestOptions({headers: new Headers({'Content-Type': 'application/json; charset=UTF-8'})});
+    // return this.http.post(`${environment.firebase.cloudFunctionsURL}/create-account`, JSON.stringify(newUser), reqOptions)
+    //   .map(x => x.json())
+    this.sharedService.createAccount(newUser).subscribe(res => {
+      console.log(res);
+    });
   }
 
   newAccountFormValidator() {

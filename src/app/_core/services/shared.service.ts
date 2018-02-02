@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/user';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class SharedService {
@@ -9,7 +12,9 @@ export class SharedService {
   user$ = this.user.asObservable();
   userInfo: IUser = null;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   storeUser(user: IUser) {
     this.userInfo = user;
@@ -20,4 +25,11 @@ export class SharedService {
     return this.userInfo;
   }
 
+  createAccount(newUser) {
+    console.log(newUser);
+    return this.http.post(`${environment.firebase.cloudFunctionsURL}/create-account`, newUser, {observe: 'response'}).map((x: any) => {
+      console.log(x);
+      return {success: true};
+    });
+  }
 }
