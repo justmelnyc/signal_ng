@@ -13,11 +13,10 @@ routerNonAuth.use(cors);
 
 routerNonAuth.post('/create-account', (req, res) => {
   admin.auth().createUser({
-    email: req.email,
+    email: req.body.email,
     emailVerified: false,
-    password: req.password,
-    displayName: req.name,
-    photoURL: '',
+    password: req.body.password,
+    displayName: req.body.name,
     disabled: false
   })
     .then(function(userRecord) {

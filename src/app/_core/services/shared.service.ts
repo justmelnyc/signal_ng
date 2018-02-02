@@ -28,7 +28,6 @@ export class SharedService {
   createAccount(newUser) {
     console.log(newUser);
     return this.http.post(`${environment.firebase.cloudFunctionsURL}/addNewAccount`, newUser, {observe: 'response'}).map((x: any) => {
-      console.log('addNewAccount response = ', x);
       return x;
     });
   }

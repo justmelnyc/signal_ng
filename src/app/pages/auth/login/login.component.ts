@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         id: currentUser.uid,
         name: currentUser.displayName,
         email: currentUser.email,
-        password: '',
+        password: this.loginUser.password,
         photo: currentUser.photoURL,
         admin: false
       };
