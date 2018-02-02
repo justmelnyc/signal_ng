@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore } from 'angularfire2/firestore';
-import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
+
 import { IUser } from '../../../_core/interfaces/user';
 import { ILoginInfo } from '../../../_core/interfaces/login-info';
 import { SharedService } from '../../../_core/services/shared.service';
@@ -18,11 +20,6 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
-  newUser = {
-    email: '',
-    password: '',
-    confirm: ''
-  };
 
   formChecker = {
     success: true,
@@ -32,7 +29,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    private adb: AngularFireDatabase,
     private sharedService: SharedService
   ) { }
 
@@ -57,14 +54,15 @@ export class LoginComponent implements OnInit {
         id: currentUser.uid,
         name: currentUser.displayName,
         email: currentUser.email,
+        password: '',
         photo: currentUser.photoURL,
         admin: false
       };
 
-      const db = await this.afs.doc(`users/${currentUser.uid}`).valueChanges().first().toPromise() as IUser;
+      const db = await this.adb.object(`users/${currentUser.uid}`).valueChanges().first().toPromise() as IUser;
 
       if (!db) {
-        await this.afs.doc(`users/${currentUser.uid}`).set(user);
+        await this.adb.object(`users/${currentUser.uid}`).set(user);
       } else {
         user.admin = db.admin;
       }

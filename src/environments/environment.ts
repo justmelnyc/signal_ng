@@ -11,6 +11,7 @@ export const environment = {
     databaseURL: 'https://prototype-um.firebaseio.com',
     projectId: 'prototype-um',
     storageBucket: 'prototype-um.appspot.com',
-    messagingSenderId: '885874681442'
+    messagingSenderId: '885874681442',
+    cloudFunctionsURL: "https://us-central1-prototype-um.cloudfunctions.net",
   }
 };
