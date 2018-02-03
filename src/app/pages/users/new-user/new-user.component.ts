@@ -72,11 +72,12 @@ export class NewUserComponent implements OnInit {
       admin: false
     };
 
-    this.adb.list(`users`).push(newUser);
+    const createdUser = this.adb.list(`users`).push(newUser);
+    newUser.id = createdUser.key;
     this.sharedService.createAccount(newUser).subscribe(res => {
       console.log(res);
     }, (err) => {
-
+      this.adb.list(`users/${newUser.id}`).remove();
     });
   }
 

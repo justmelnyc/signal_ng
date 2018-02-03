@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
-import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -12,6 +11,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthGuard } from './_core/guards/auth.guard';
 import { RoleGuard } from './_core/guards/role-guard.guard';
 import { SharedService } from './_core/services/shared.service';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 
