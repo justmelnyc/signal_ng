@@ -19,34 +19,17 @@ export class RoleGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot): Observable<boolean> {
 
     let user = this.sharedService.getUser();
-    if (!user) {
-      this.getAuthUser().then(user => {
-        console.log('role guard = ', user);
-        if (user.admin) {
-          return true;
-        }
-
-        this.router.navigate(['/login']);
-        return false;
-      });
+    if (user) {
+      return Observable.of(user.admin ? true : false);
     } else {
-      if (user.admin) {
-        return true;
-      }
-
-      this.router.navigate(['/login']);
-      return false;
+      return this.afAuth.authState.first().flatMap(cUser => {
+        return this.adb.object(`users/${cUser.uid}`).valueChanges().first().map((x: IUser) => {
+          return x.admin ? true : false;
+        });
+      });
     }
-  }
-
-  async getAuthUser() {
-    await this.afAuth.authState.first().toPromise();
-    let uid = await this.afAuth.auth.currentUser.uid;
-    const user = await this.adb.object(`users/${uid}`).valueChanges().first().toPromise() as IUser;
-    this.sharedService.storeUser(user);
-    return user;
   }
 }
