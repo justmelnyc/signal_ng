@@ -10,7 +10,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AuthGuard } from './_core/guards/auth.guard';
 import { RoleGuard } from './_core/guards/role-guard.guard';
-import { SharedService } from './_core/services/shared.service';
+import { SharedService, NotificationService } from './_core/services';
 import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { ProfileModule } from './pages/profile/profile.module';
 import { UsersModule } from './pages/users/users.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
@@ -38,12 +39,14 @@ import { AppComponent } from './app.component';
     LayoutModule,
     AuthModule,
     ProfileModule,
-    UsersModule
+    UsersModule,
+    SharedModule
   ],
   providers: [
     AuthGuard,
     RoleGuard,
-    SharedService
+    SharedService,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })

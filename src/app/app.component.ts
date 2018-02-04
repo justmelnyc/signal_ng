@@ -3,7 +3,7 @@ import { trigger, style, animate, transition, query } from '@angular/animations'
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { IUser } from './_core/interfaces/user';
-import { SharedService } from './_core/services/shared.service';
+import { SharedService } from './_core/services/SharedService/shared.service';
 
 @Component({
   selector: 'app-root',

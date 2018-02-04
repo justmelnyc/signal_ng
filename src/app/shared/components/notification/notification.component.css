@@ -1,0 +1,12 @@
+.custom-alert {
+  height: 65px;
+  position: relative; }
+
+.notification-container {
+  position: absolute;
+  right: 0;
+  width: 460px;
+  top: 0;
+  z-index: 9; }
+
+/*# sourceMappingURL=notification.component.css.map */

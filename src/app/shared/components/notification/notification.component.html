@@ -1,0 +1,21 @@
+<div class="notification-container">
+  <ng-template ngFor let-notify [ngForOf]="notifications">
+    <div class="alert custom-alert alert-dismissible" role="alert" *ngIf="!notify.hidden" @flyToLeft
+         [ngClass]="{
+            'alert-success': notify.type === 'success',
+            'alert-danger': notify.type === 'warning',
+            'alert-info': notify.type === 'delete'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="notify.hidden = true">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="circle">
+        <i class="fa" [ngClass]="{
+            'fa-check': notify.type === 'success',
+            'fa-exclamation-triangle': notify.type === 'warning',
+            'fa-trash-o': notify.type === 'delete'}">
+        </i>
+      </div>
+      <p>{{notify.message}}</p>
+    </div>
+  </ng-template>
+</div>

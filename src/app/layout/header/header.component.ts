@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { IUser } from '../../_core/interfaces/user';
-import { SharedService } from '../../_core/services/shared.service';
+import { SharedService } from '../../_core/services/SharedService/shared.service';
 
 @Component({
   selector: 'app-header',

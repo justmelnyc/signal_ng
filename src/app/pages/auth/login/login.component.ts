@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 
 import { IUser } from '../../../_core/interfaces/user';
 import { ILoginInfo } from '../../../_core/interfaces/login-info';
-import { SharedService } from '../../../_core/services/shared.service';
+import { SharedService } from '../../../_core/services/SharedService/shared.service';
 
 @Component({
   selector: 'app-login',

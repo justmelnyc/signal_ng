@@ -4,7 +4,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 import { IUser } from '../../_core/interfaces/user';
 
-import { SharedService } from '../../_core/services/shared.service';
+import { SharedService } from '../../_core/services/SharedService/shared.service';
 
 @Component({
   selector: 'app-profile',

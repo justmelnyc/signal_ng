@@ -5,7 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
 
-import { SharedService } from '../../_core/services/shared.service';
+import { SharedService } from '../../_core/services/SharedService/shared.service';
 import { IReservation } from '../../_core/interfaces/reservation';
 import { IUser } from '../../_core/interfaces/user';
 

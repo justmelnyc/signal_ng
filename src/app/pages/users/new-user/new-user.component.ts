@@ -4,10 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { SharedService } from '../../../_core/services/shared.service';
+import { SharedService, NotificationService } from '../../../_core/services';
 
 import { IUser } from '../../../_core/interfaces/user';
-import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-new-user',
@@ -33,7 +32,8 @@ export class NewUserComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private adb: AngularFireDatabase,
     private afAuth: AngularFireAuth,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -75,7 +75,16 @@ export class NewUserComponent implements OnInit {
     this.sharedService.createAccount(newUser).subscribe(res => {
       newUser.id = res.body.uid;
       this.adb.list(`users`).push(newUser);
+      this.notificationService.showNotification(
+        'Created New account Successfully!',
+        'success'
+      );
     }, (err) => {
+      console.log(err);
+      this.notificationService.showNotification(
+        'Deleted Successfully!',
+        'warning'
+      );
     });
   }
 

@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 
-import { SharedService } from '../../../_core/services/shared.service';
+import { SharedService } from '../../../_core/services/SharedService/shared.service';
 import { IReservation } from '../../../_core/interfaces/reservation';
 import { IUser } from '../../../_core/interfaces/user';
 import { FileUpload } from '../../../_core/interfaces/file-upload';

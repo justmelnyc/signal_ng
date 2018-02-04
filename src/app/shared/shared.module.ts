@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   imports: [
@@ -13,11 +14,13 @@ import { FileUploaderComponent } from './components/file-uploader/file-uploader.
   ],
   exports: [
     DatePickerComponent,
-    FileUploaderComponent
+    FileUploaderComponent,
+    NotificationComponent
   ],
   declarations: [
     DatePickerComponent,
-    FileUploaderComponent
+    FileUploaderComponent,
+    NotificationComponent
   ]
 })
 export class SharedModule { }

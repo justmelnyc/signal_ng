@@ -3,7 +3,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 
-import { SharedService } from '../../../_core/services/shared.service';
+import { SharedService } from '../../../_core/services/SharedService/shared.service';
 import { FileUpload } from '../../../_core/interfaces/file-upload';
 import { IUser } from '../../../_core/interfaces/user';
 

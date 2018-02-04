@@ -255,6 +255,7 @@
   top: 0;
   right: 0
 }
+
 @media screen and (max-width:767px) {
   .button {
     height: 33px;
@@ -440,4 +441,63 @@
     padding-top: 6px;
     margin-right: -2px
   }
+}
+
+.custom-alert {
+  background-color: #ffffffa1;
+  border-radius: 2px;
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  width: 430px;
+  padding: 15px 15px 15px 67px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.22)
+}
+
+.custom-alert p {
+  padding: 0;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.custom-alert .close {
+  position: absolute;
+  font-size: 16px;
+  right: 7px;
+  top: 5px;
+  text-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+
+.custom-alert .circle {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  left: 15px;
+  top: 15px;
+}
+
+.custom-alert .circle .fa {
+  font-size: 20px;
+}
+
+.custom-alert.alert-success, .custom-alert.alert-danger, .custom-alert.alert-info {
+  border: 0 none;
+  color: inherit;
+}
+
+.custom-alert.alert-success .circle {
+  border-color: #00a86b;
+  color: #00a86b !important;
+}
+
+.custom-alert.alert-danger .circle {
+  border-color: #cd0f35;
+  color: #cd0f35 !important;
+}
+
+.custom-alert.alert-info .circle {
+  border-color: #2289ff;
+  color: #2289ff !important;
 }
