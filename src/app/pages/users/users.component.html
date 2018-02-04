@@ -36,6 +36,11 @@
     <td>{{user.email}}</td>
     <td>
       <span class="float-right">
+        <button (click)="spotsList(user)" class="button is-primary">
+          Spots List
+        </button>
+      </span>
+      <span class="float-right">
         <button (click)="deleteUser(user)" class="button is-danger">
           DELETE
         </button>

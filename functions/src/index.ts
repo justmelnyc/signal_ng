@@ -30,7 +30,24 @@ routerNonAuth.post('/create-account', (req, res) => {
     });
 });
 
+routerNonAuth.post('/delete-account', (req, res) => {
+  admin.auth().deleteUser(req.body)
+    .then(function() {
+      console.log("Successfully deleted selected account:", );
+      res.send(200);
+    })
+    .catch(function(error) {
+      console.log("Error deleting account:", error);
+      res.status(500).send(error.message);
+    });
+});
+
 exports.addNewAccount = functions.https.onRequest((req, res) => {
   req.url = '/create-account';
+  return routerNonAuth(req, res)
+});
+
+exports.deleteAccount = functions.https.onRequest((req, res) => {
+  req.url = '/delete-account';
   return routerNonAuth(req, res)
 });

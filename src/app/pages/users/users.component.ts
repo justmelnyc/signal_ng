@@ -6,7 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Subscription } from 'rxjs/Subscription';
 
 import { IUser } from '../../_core/interfaces/user';
-import { SharedService } from '../../_core/services/SharedService/shared.service';
+import { SharedService, NotificationService } from '../../_core/services';
 
 @Component({
   selector: 'app-users',
@@ -19,10 +19,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   users: IUser[] = [];
 
   constructor(
-    private sharedService: SharedService,
     private adb: AngularFireDatabase,
     private afAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -68,11 +69,33 @@ export class UsersComponent implements OnInit, OnDestroy {
     }
   }
 
-  async deleteUser(user: IUser) {
-    await this.adb.object(`users/${user.id}`).remove();
+  async deleteUser(deleteUser: IUser) {
+    await this.adb.list(`users`, ref => ref.orderByChild('id').equalTo(deleteUser.id))
+      .snapshotChanges()
+      .subscribe(users => {
+        users.map(user => {
+          this.sharedService.deleteAccount(deleteUser.id).subscribe(res => {
+            this.adb.object(`users/${user.key}`).remove();
+            this.notificationService.showNotification(
+              'Selected account has been deleted Successfully!',
+              'success'
+            );
+          }, (err) => {
+            this.notificationService.showNotification(
+              err.error,
+              'warning'
+            );
+          })
+        })
+      });
   }
 
   addUser() {
     this.router.navigate(['/accounts/new']);
+  }
+
+  spotsList(user: IUser) {
+    console.log('spotsList = ', user);
+    this.router.navigate(['/accounts/' + user.id]);
   }
 }

@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SharedService {
@@ -32,7 +32,16 @@ export class SharedService {
         return response;
       })
       .catch(error => {
-        console.log(error);
+        return Observable.throw(error);
+      });
+  }
+
+  deleteAccount(uid) {
+    return this.http.post(`${environment.firebase.cloudFunctionsURL}/deleteAccount`, uid, {observe: 'response'})
+      .map((response: any) => {
+        return response;
+      })
+      .catch(error => {
         return Observable.throw(error);
       });
   }

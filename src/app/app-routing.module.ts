@@ -33,11 +33,6 @@ const routes: Routes = [
     path: 'accounts', loadChildren: './pages/users/users.module#UsersModule',
     data: {animation: 'users'},
     canActivate: [AuthGuard, RoleGuard]
-  }, {
-    path: 'accounts/new',
-    component: NewUserComponent,
-    data: {animation: 'newUser'},
-    canActivate: [AuthGuard, RoleGuard]
   }
 ];
 

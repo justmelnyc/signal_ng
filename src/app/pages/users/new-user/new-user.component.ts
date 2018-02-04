@@ -75,14 +75,21 @@ export class NewUserComponent implements OnInit {
     this.sharedService.createAccount(newUser).subscribe(res => {
       newUser.id = res.body.uid;
       this.adb.list(`users`).push(newUser);
+
+      this.newAccount = {
+        email: '',
+        password: '',
+        username: ''
+      };
+
       this.notificationService.showNotification(
-        'Created New account Successfully!',
+        'New account has been created Successfully!',
         'success'
       );
     }, (err) => {
       console.log(err);
       this.notificationService.showNotification(
-        'Deleted Successfully!',
+        err.error,
         'warning'
       );
     });

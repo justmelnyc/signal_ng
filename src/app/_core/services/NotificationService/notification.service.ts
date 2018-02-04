@@ -7,7 +7,7 @@ export class NotificationService {
 
   constructor() {}
 
-  showNotification(message: string, type: string, dismiss: number = 200000) {
+  showNotification(message: string, type: string, dismiss: number = 2000) {
     const notify: Notification = new Notification();
     notify.message = message;
     notify.type = type;
