@@ -19,6 +19,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { ProfileModule } from './pages/profile/profile.module';
 import { UsersModule } from './pages/users/users.module';
+import { SpotsModule } from './pages/spots/spots.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { AppComponent } from './app.component';
     AuthModule,
     ProfileModule,
     UsersModule,
+    SpotsModule,
     SharedModule
   ],
   providers: [

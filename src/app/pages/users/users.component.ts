@@ -95,7 +95,6 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   spotsList(user: IUser) {
-    console.log('spotsList = ', user);
-    this.router.navigate(['/accounts/' + user.id]);
+    this.router.navigate(['/account/' + user.id]);
   }
 }
