@@ -49,7 +49,7 @@ export class FileUploaderComponent implements OnInit {
 
   pushFileToStorage(fileUpload: FileUpload, progress: {percentage: number}) {
     const storageRef = firebase.storage().ref();
-    const uploadTask = storageRef.child(`${this.basePath}/${this.uid}/${new Date().getTime().toString()}`)
+    const uploadTask = storageRef.child(`${this.basePath}/${new Date().getTime().toString()}`)
       .put(fileUpload.file, {contentType: fileUpload.file.type});
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,

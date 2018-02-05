@@ -1,3 +1,41 @@
-<p>
-  new-spot works!
-</p>
+<section class="hero is-danger is-medium header-image">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1">
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="columns content is-centered spot-form-container">
+    <form class="form" #spotForm="ngForm" (ngSubmit)="onCreateSpot()">
+      <div class="spot-name-container">
+        <label class="label">Spot Name</label>
+        <div class="control">
+          <input type="text"
+                 class="input"
+                 placeholder="Enter Spot Name"
+                 [(ngModel)]="newSpot.name"
+                 required
+                 name="spotName">
+        </div>
+      </div>
+
+      <div class="action-container">
+        <button class="button is-primary" [disabled]="!spotForm.form.valid">Ok</button>
+      </div>
+    </form>
+
+    <app-file-uploader (fileUploadSuccess)="onFileUploadSuccess($event)"></app-file-uploader>
+  </div>
+</section>
+
+<section class="playlist-container">
+  <div class="list-item-container" *ngFor="let video of newSpot.videos">
+    <span class="item-name">
+      {{video}}
+    </span>
+    <span class="fa fa-close"></span>
+  </div>
+</section>

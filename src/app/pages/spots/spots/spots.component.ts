@@ -28,6 +28,6 @@ export class SpotsComponent implements OnInit, OnDestroy {
   }
 
   addNewSpot() {
-    this.router.navigate(['/account/:id/new']);
+    this.router.navigate([`/account/${this.userId}/new`]);
   }
 }
