@@ -16,3 +16,19 @@
     font-weight: bold;
   }
 }
+
+.spot-list-container {
+  width: 50%;
+  margin: auto;
+  height: 300px;
+  overflow: auto;
+  margin-top: 50px;
+
+  .list-item-container {
+    padding: 10px;
+    border: solid 1px #a4a1a1;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

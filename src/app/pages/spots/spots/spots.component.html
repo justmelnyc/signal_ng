@@ -14,8 +14,11 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="columns content is-centered">
-    sadjflksadjfklsadjflkjafsldk
+<section class="spot-list-container">
+  <div class="list-item-container" *ngFor="let spot of spots_list">
+    <span class="item-name">
+      {{spot.name}}
+    </span>
+    <span class="fa fa-close"></span>
   </div>
 </section>
