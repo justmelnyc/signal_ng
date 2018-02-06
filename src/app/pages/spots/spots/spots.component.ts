@@ -23,7 +23,7 @@ export class SpotsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe(params => {
-      this.userId = params['id'];
+      this.userId = params['uid'];
 
       if (this.userId) {
         this.getSpotList();
@@ -41,7 +41,8 @@ export class SpotsComponent implements OnInit, OnDestroy {
       .subscribe(spots => {
         spots.map(spot => {
           this.spots_list.push({
-            uid: spot.key,
+            id: spot.key,
+            uid: spot.payload.val().uid,
             name: spot.payload.val().name,
             order: spot.payload.val().order,
             videos: spot.payload.val().videos
@@ -51,6 +52,10 @@ export class SpotsComponent implements OnInit, OnDestroy {
   }
 
   addNewSpot() {
-    this.router.navigate([`/account/${this.userId}/new`]);
+    this.router.navigate([`/account/${this.userId}/new-spot`]);
+  }
+
+  editSpot(spot: ISpot) {
+    this.router.navigate([`/account/${this.userId}/edit-spot/` + spot.id]);
   }
 }

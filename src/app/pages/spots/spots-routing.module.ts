@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SpotsComponent } from './spots/spots.component';
-import { NewSpotComponent } from './spots/new-spot/new-spot.component';
+import { SpotComponent } from './spots/spot/spot.component';
 
 const routes: Routes = [
   {
@@ -10,8 +10,12 @@ const routes: Routes = [
     component: SpotsComponent,
     data: {title: 'spots'}
   }, {
-    path: 'new',
-    component: NewSpotComponent,
+    path: ':method/:spotId',
+    component: SpotComponent,
+    data: {title: 'edit spot'}
+  }, {
+    path: ':method',
+    component: SpotComponent,
     data: {title: 'new spot'}
   }
 ];

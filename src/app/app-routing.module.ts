@@ -34,7 +34,7 @@ const routes: Routes = [
     data: {animation: 'users'},
     canActivate: [AuthGuard, RoleGuard]
   }, {
-    path: 'account/:id',
+    path: 'account/:uid',
     loadChildren: './pages/spots/spots.module#SpotsModule',
     data: {animation: 'spots'},
     canActivate: [AuthGuard, RoleGuard]

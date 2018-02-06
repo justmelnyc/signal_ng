@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpotsRoutingModule } from './spots-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { SpotsComponent } from './spots/spots.component';
-import { NewSpotComponent } from './spots/new-spot/new-spot.component';
+import { SpotComponent } from './spots/spot/spot.component';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { NewSpotComponent } from './spots/new-spot/new-spot.component';
   ],
   declarations: [
     SpotsComponent,
-    NewSpotComponent
+    SpotComponent
   ]
 })
 export class SpotsModule { }

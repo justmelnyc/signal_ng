@@ -16,18 +16,19 @@ export enum EPageType {
 
 @Component({
   selector: 'app-new-spot',
-  templateUrl: './new-spot.component.html',
-  styleUrls: ['./new-spot.component.scss']
+  templateUrl: './spot.component.html',
+  styleUrls: ['./spot.component.scss']
 })
-export class NewSpotComponent implements OnInit {
+export class SpotComponent implements OnInit {
 
   uid: '';
+  spotId: '';
   currentFileUpload: FileUpload;
   enum_PageType = EPageType;
   pageType: EPageType = EPageType.CreatePage;
-  playlist = [];
 
   newSpot: ISpot = {
+    id: '',
     uid: '',
     name: '',
     order: -1,
@@ -45,20 +46,25 @@ export class NewSpotComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      this.uid = params.id;
-      console.log('new spot = ', this.uid);
-      this.newSpot.uid = this.uid;
+      this.uid = params.uid;
+      if (params.method === 'edit-spot') {
+        this.pageType = EPageType.EditPage;
+        this.spotId = params.spotId;
+        this.getSpot();
+      } else if (params.method === 'new-spot') {
+        this.pageType = EPageType.ViewPage;
+      }
     });
   }
 
   getSpot() {
-    
+    // const selectedSpot = this.adb.object(`spots/${this.spotId}`).valueChanges().first().toPromise() as ISpot;
+    // console.log('selected Spot = ', selectedSpot);
   }
 
   async onCreateSpot() {
     try {
       const createdSpot = await this.adb.list(`spots`).push(this.newSpot);
-      console.log('=====', createdSpot);
       this.notificationService.showNotification(
         'New Spot has been created Successfully!',
         'success'
