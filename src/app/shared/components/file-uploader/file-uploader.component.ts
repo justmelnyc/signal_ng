@@ -54,17 +54,13 @@ export class FileUploaderComponent implements OnInit {
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
       (snapshot) => {
-        // in progress
         const snap = snapshot as firebase.storage.UploadTaskSnapshot;
         progress.percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
       },
       (error) => {
-        // fail
         console.log(error);
       },
       () => {
-        // success
-        console.log('uploadTask = ', uploadTask);
         fileUpload.url = uploadTask.snapshot.downloadURL;
         fileUpload.name = uploadTask.snapshot.ref.name;
         this.fileUploadSuccess.emit(fileUpload);

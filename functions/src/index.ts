@@ -9,6 +9,8 @@ const router = new express.Router();
 const routerNonAuth = new express.Router();
 const cors = require('cors')({origin: true});
 
+const storageRef = firebase.storage().ref();
+
 router.use(cors);
 routerNonAuth.use(cors);
 
@@ -43,22 +45,6 @@ routerNonAuth.post('/delete-account', (req, res) => {
     });
 });
 
-routerNonAuth.post('/delete-video', (req, res) => {
-  const storageRef = firebase.storage().ref();
-  console.log('deleteVideo = ', req.body.name);
-  const uploadsRef = storageRef.child(`/uploads/${req.body.name}`);
-
-  uploadsRef.delete()
-    .then(function () {
-      console.log("Successfully deleted selected video:", );
-      res.send(200);
-    })
-    .catch(function (error) {
-      console.log("Error deleting video:", error);
-      res.status(500).send(error.message);
-    })
-});
-
 exports.addNewAccount = functions.https.onRequest((req, res) => {
   req.url = '/create-account';
   return routerNonAuth(req, res)
@@ -66,10 +52,5 @@ exports.addNewAccount = functions.https.onRequest((req, res) => {
 
 exports.deleteAccount = functions.https.onRequest((req, res) => {
   req.url = '/delete-account';
-  return routerNonAuth(req, res)
-});
-
-exports.deleteVideo = functions.https.onRequest((req, res) => {
-  req.url = '/delete-video';
   return routerNonAuth(req, res)
 });

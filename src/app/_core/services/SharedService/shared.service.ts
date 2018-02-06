@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../../interfaces/user';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+import * as firebase from 'firebase';
 
 import { environment } from '../../../../environments/environment';
-import { Observable } from 'rxjs/Observable';
+import { IUser } from '../../interfaces/user';
 
 @Injectable()
 export class SharedService {
@@ -46,13 +48,18 @@ export class SharedService {
       });
   }
 
-  deleteVideo(video) {
-    return this.http.post(`${environment.firebase.cloudFunctionsURL}/deleteAccount`, video, {observe: 'response'})
-      .map((response: any) => {
-        return response;
-      })
-      .catch(error => {
-        return Observable.throw(error);
-      });
-  }
+  deleteVideo(video): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const storageRef = firebase.storage().ref();
+      const uploadsRef = storageRef.child(`uploads/${video.name}`);
+
+      uploadsRef.delete()
+        .then(function () {
+          resolve(true);
+        })
+        .catch(function (error) {
+          reject(false);
+        })
+    })
+  };
 }

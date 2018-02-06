@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 import { SharedService, NotificationService } from '../../../../_core/services';
 import { ISpot } from '../../../../_core/interfaces/spot';
@@ -79,7 +80,8 @@ export class SpotComponent implements OnInit {
 
   async createSpot() {
     try {
-      await this.adb.list(`spots`).push(this.newSpot);
+      const newSpot = await this.adb.list(`spots`).push(this.newSpot);
+      this.spotId = newSpot.key;
       this.notificationService.showNotification(
         'New Spot has been created Successfully!',
         'success'
@@ -113,31 +115,45 @@ export class SpotComponent implements OnInit {
 
   onFileUploadSuccess(uploadedFile: FileUpload) {
     this.currentFileUpload = uploadedFile;
+
+    if (!this.newSpot.videos) {
+      this.newSpot.videos = [];
+    }
+
     this.newSpot.videos.push(this.currentFileUpload);
   }
 
-  deleteVideo(video: FileUpload) {
-    this.sharedService.deleteVideo(video)
-  }
+  async deleteVideo(video: FileUpload) {
+    const response = await this.sharedService.deleteVideo(video);
 
-  // async deleteUser(deleteUser: IUser) {
-  //   await this.adb.list(`users`, ref => ref.orderByChild('id').equalTo(deleteUser.id))
-  //     .snapshotChanges()
-  //     .subscribe(users => {
-  //       users.map(user => {
-  //         this.sharedService.deleteAccount(deleteUser.id).subscribe(res => {
-  //           this.adb.object(`users/${user.key}`).remove();
-  //           this.notificationService.showNotification(
-  //             'Selected account has been deleted Successfully!',
-  //             'success'
-  //           );
-  //         }, (err) => {
-  //           this.notificationService.showNotification(
-  //             err.error,
-  //             'warning'
-  //           );
-  //         })
-  //       })
-  //     });
-  // }
+    if (response) {
+      let newVideoList = [];
+      this.newSpot.videos.map(element => {
+        if (element !== video) {
+          newVideoList.push(element);
+        }
+      });
+      this.newSpot.videos = newVideoList;
+
+      try {
+        await this.adb.object(`spots/${this.spotId}`).update(this.newSpot);
+        this.notificationService.showNotification(
+          'selected video has been deleted successfully!',
+          'success'
+        );
+      } catch (e) {
+        console.log(e);
+        this.notificationService.showNotification(
+          'video delete action has been failed.',
+          'warning'
+        );
+      } finally {
+      }
+    } else {
+      this.notificationService.showNotification(
+        'video delete action has been failed.',
+        'warning'
+      );
+    }
+  }
 }
