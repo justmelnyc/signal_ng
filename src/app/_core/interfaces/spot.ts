@@ -1,7 +1,8 @@
+import { FileUpload } from './file-upload';
+
 export interface ISpot {
-  id: string;
   uid: string;
   name: string;
   order: number;
-  videos: Array<string>;
+  videos: Array<FileUpload>;
 }

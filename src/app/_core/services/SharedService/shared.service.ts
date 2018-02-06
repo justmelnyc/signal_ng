@@ -45,4 +45,14 @@ export class SharedService {
         return Observable.throw(error);
       });
   }
+
+  deleteVideo(video) {
+    return this.http.post(`${environment.firebase.cloudFunctionsURL}/deleteAccount`, video, {observe: 'response'})
+      .map((response: any) => {
+        return response;
+      })
+      .catch(error => {
+        return Observable.throw(error);
+      });
+  }
 }

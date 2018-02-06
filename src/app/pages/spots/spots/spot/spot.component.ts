@@ -28,7 +28,6 @@ export class SpotComponent implements OnInit {
   pageType: EPageType = EPageType.CreatePage;
 
   newSpot: ISpot = {
-    id: '',
     uid: '',
     name: '',
     order: -1,
@@ -47,24 +46,40 @@ export class SpotComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.uid = params.uid;
+      this.newSpot.uid = params.uid;
       if (params.method === 'edit-spot') {
         this.pageType = EPageType.EditPage;
         this.spotId = params.spotId;
         this.getSpot();
       } else if (params.method === 'new-spot') {
-        this.pageType = EPageType.ViewPage;
+        this.pageType = EPageType.CreatePage;
       }
     });
   }
 
   getSpot() {
-    // const selectedSpot = this.adb.object(`spots/${this.spotId}`).valueChanges().first().toPromise() as ISpot;
-    // console.log('selected Spot = ', selectedSpot);
+    this.adb.object(`spots/${this.spotId}`).valueChanges()
+      .subscribe((res: ISpot) => {
+        this.newSpot = {
+          uid: res.uid,
+          name: res.name,
+          order: res.order,
+          videos: res.videos
+        }
+      });
   }
 
-  async onCreateSpot() {
+  onSubmit() {
+    if (this.pageType === EPageType.CreatePage) {
+      this.createSpot();
+    } else {
+      this.updateSpot();
+    }
+  }
+
+  async createSpot() {
     try {
-      const createdSpot = await this.adb.list(`spots`).push(this.newSpot);
+      await this.adb.list(`spots`).push(this.newSpot);
       this.notificationService.showNotification(
         'New Spot has been created Successfully!',
         'success'
@@ -79,8 +94,50 @@ export class SpotComponent implements OnInit {
     }
   }
 
+  async updateSpot() {
+    try {
+      await this.adb.object(`spots/${this.spotId}`).update(this.newSpot);
+      this.notificationService.showNotification(
+        'Spot has been updated Successfully!',
+        'success'
+      );
+    } catch (e) {
+      console.log(e);
+      this.notificationService.showNotification(
+        'Spot update has been failed.',
+        'warning'
+      );
+    } finally {
+    }
+  }
+
   onFileUploadSuccess(uploadedFile: FileUpload) {
     this.currentFileUpload = uploadedFile;
-    this.newSpot.videos.push(this.currentFileUpload.url);
+    this.newSpot.videos.push(this.currentFileUpload);
   }
+
+  deleteVideo(video: FileUpload) {
+    this.sharedService.deleteVideo(video)
+  }
+
+  // async deleteUser(deleteUser: IUser) {
+  //   await this.adb.list(`users`, ref => ref.orderByChild('id').equalTo(deleteUser.id))
+  //     .snapshotChanges()
+  //     .subscribe(users => {
+  //       users.map(user => {
+  //         this.sharedService.deleteAccount(deleteUser.id).subscribe(res => {
+  //           this.adb.object(`users/${user.key}`).remove();
+  //           this.notificationService.showNotification(
+  //             'Selected account has been deleted Successfully!',
+  //             'success'
+  //           );
+  //         }, (err) => {
+  //           this.notificationService.showNotification(
+  //             err.error,
+  //             'warning'
+  //           );
+  //         })
+  //       })
+  //     });
+  // }
 }

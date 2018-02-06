@@ -13,7 +13,7 @@ export class SpotsComponent implements OnInit, OnDestroy {
 
   private userId: string;
   private sub: any;
-  spots_list: Array<ISpot> = [];
+  spots_list: Array<any> = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -55,7 +55,7 @@ export class SpotsComponent implements OnInit, OnDestroy {
     this.router.navigate([`/account/${this.userId}/new-spot`]);
   }
 
-  editSpot(spot: ISpot) {
+  editSpot(spot: any) {
     this.router.navigate([`/account/${this.userId}/edit-spot/` + spot.id]);
   }
 }

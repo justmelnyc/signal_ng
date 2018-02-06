@@ -64,8 +64,9 @@ export class FileUploaderComponent implements OnInit {
       },
       () => {
         // success
+        console.log('uploadTask = ', uploadTask);
         fileUpload.url = uploadTask.snapshot.downloadURL;
-        fileUpload.name = fileUpload.file.name;
+        fileUpload.name = uploadTask.snapshot.ref.name;
         this.fileUploadSuccess.emit(fileUpload);
       }
     );

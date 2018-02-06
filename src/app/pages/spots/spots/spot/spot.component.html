@@ -9,7 +9,7 @@
 
 <section class="section">
   <div class="columns content is-centered spot-form-container">
-    <form class="form" #spotForm="ngForm" (ngSubmit)="onCreateSpot()">
+    <form class="form" #spotForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="spot-name-container">
         <label class="label">Spot Name</label>
         <div class="control">
@@ -34,8 +34,8 @@
 <section class="playlist-container">
   <div class="list-item-container" *ngFor="let video of newSpot.videos">
     <span class="item-name">
-      {{video}}
+      {{video.name}}
     </span>
-    <span class="fa fa-close"></span>
+    <span class="fa fa-close" (click)="deleteVideo(video)"></span>
   </div>
 </section>

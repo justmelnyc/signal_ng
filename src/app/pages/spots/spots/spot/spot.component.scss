@@ -42,5 +42,11 @@
     margin: 10px;
     display: flex;
     justify-content: space-between;
+
+    .item-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
