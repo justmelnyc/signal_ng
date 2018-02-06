@@ -15,10 +15,10 @@
 </section>
 
 <section class="spot-list-container">
-  <div class="list-item-container" *ngFor="let spot of spots_list" (click)="editSpot(spot)">
-    <span class="item-name">
+  <div class="list-item-container" *ngFor="let spot of spots_list">
+    <span class="item-name" (click)="editSpot(spot)">
       {{spot.name}}
     </span>
-    <span class="fa fa-close"></span>
+    <span class="fa fa-close" (click)="deleteSpot(spot)"></span>
   </div>
 </section>

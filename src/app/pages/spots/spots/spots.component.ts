@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AngularFireDatabase } from 'angularfire2/database';
+
 import { ISpot } from '../../../_core/interfaces/spot';
+import { NotificationService } from '../../../_core/services';
 
 @Component({
   selector: 'app-spots',
@@ -18,7 +20,8 @@ export class SpotsComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private adb: AngularFireDatabase
+    private adb: AngularFireDatabase,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -57,5 +60,21 @@ export class SpotsComponent implements OnInit, OnDestroy {
 
   editSpot(spot: any) {
     this.router.navigate([`/account/${this.userId}/edit-spot/` + spot.id]);
+  }
+
+  deleteSpot(spot: any) {
+    const response = this.adb.list(`spots/${spot.id}`).remove();
+
+    if (response) {
+      this.notificationService.showNotification(
+        'Spot has been deleted successfully.',
+        'success'
+      );
+    } else {
+      this.notificationService.showNotification(
+        'Delete action has been failed.',
+        'warning'
+      );
+    }
   }
 }
