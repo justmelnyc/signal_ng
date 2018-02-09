@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './pages/home/home.module#HomeModule',
-    data: {animation: 'home'}
+    data: {animation: 'home'},
+    canActivate: [AuthGuard]
   }, {
     path: 'login',
     component: LoginComponent,
@@ -34,6 +35,9 @@ const routes: Routes = [
     loadChildren: './pages/player/player.module#PlayerModule',
     data: {animation: 'player'},
     canActivate: [AuthGuard]
+  }, {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

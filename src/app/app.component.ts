@@ -51,7 +51,6 @@ export class AppComponent implements OnInit {
       const res = this.afAuth.auth.currentUser;
       const user: IUser = await this.adb.object(`users/${res.uid}`).valueChanges().first().toPromise() as IUser;
       this.sharedService.storeUser(user);
-      console.log('loadUser');
     } catch (e) {
       this.sharedService.storeUser(null);
     }

@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
       }
 
       this.sharedService.storeUser(user);
-      this.router.navigate(['/reservations']);
+      this.router.navigate(['']);
     } catch (e) {
       console.log(e);
     }

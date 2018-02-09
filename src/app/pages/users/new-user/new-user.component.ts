@@ -52,7 +52,7 @@ export class NewUserComponent implements OnInit {
     }
 
     if (!user.admin) {
-      this.router.navigate(['/reservations']);
+      this.router.navigate(['/settings']);
     }
   }
 

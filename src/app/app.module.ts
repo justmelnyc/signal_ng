@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AuthGuard } from './_core/guards/auth.guard';
 import { RoleGuard } from './_core/guards/role-guard.guard';
@@ -17,9 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './pages/auth/auth.module';
-import { ProfileModule } from './pages/profile/profile.module';
-import { UsersModule } from './pages/users/users.module';
-import { SpotsModule } from './pages/spots/spots.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -36,12 +32,8 @@ import { AppComponent } from './app.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule,
     LayoutModule,
     AuthModule,
-    ProfileModule,
-    UsersModule,
-    SpotsModule,
     SharedModule
   ],
   providers: [
