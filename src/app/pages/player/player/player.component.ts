@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { VgAPI } from 'videogular2/core';
-
-export interface IMedia {
-  title: string;
-  src: string;
-  type: string;
-}
+import { IMedia } from '../../../_core/interfaces/media';
+import { ISpot } from '../../../_core/interfaces/spot';
+import {FileUpload} from '../../../_core/interfaces/file-upload';
 
 @Component({
   selector: 'app-player',
@@ -14,31 +15,44 @@ export interface IMedia {
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  playlist: Array<IMedia> = [
-    {
-      title: 'Pale Blue Dot',
-      src: 'http://static.videogular.com/assets/videos/videogular.mp4',
-      type: 'video/mp4'
-    },
-    {
-      title: 'Big Buck Bunny',
-      src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
-      type: 'video/mp4'
-    },
-    {
-      title: 'Elephants Dream',
-      src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
-      type: 'video/mp4'
-    }
-  ];
+  playlist: Array<IMedia> = [];
 
+  spotId = '';
   currentIndex = 0;
-  currentItem: IMedia = this.playlist[ this.currentIndex ];
+  currentItem: IMedia;
   api: VgAPI;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private afAuth: AngularFireAuth,
+    private adb: AngularFireDatabase
+  ) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.spotId = params['id'];
+
+      if (this.spotId) {
+        this.getPlaylist();
+      }
+    });
+  }
+
+  getPlaylist() {
+    this.adb.object(`spots/${this.spotId}`).valueChanges()
+      .subscribe((res: ISpot) => {
+        console.log('getPlaylist = ', res);
+        res.videos.map((video: FileUpload) => {
+          this.playlist.push({
+            title: video.name,
+            src: video.url,
+            type: 'video/mp4'
+          })
+        });
+
+        this.currentItem = this.playlist[this.currentIndex];
+      });
   }
 
   onPlayerReady(api: VgAPI) {

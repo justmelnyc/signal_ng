@@ -31,7 +31,7 @@ const routes: Routes = [
     data: {animation: 'settings'},
     canActivate: [AuthGuard]
   }, {
-    path: 'player/:uid',
+    path: 'player/:id',
     loadChildren: './pages/player/player.module#PlayerModule',
     data: {animation: 'player'},
     canActivate: [AuthGuard]
