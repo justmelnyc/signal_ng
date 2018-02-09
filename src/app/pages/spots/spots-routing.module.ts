@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SpotsComponent } from './spots/spots.component';
-import { SpotComponent } from './spots/spot/spot.component';
+import { SpotsComponent } from './spots.component';
+import { SpotComponent } from './spot/spot.component';
 
 const routes: Routes = [
   {

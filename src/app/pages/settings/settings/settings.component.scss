@@ -1,0 +1,59 @@
+.form {
+  animation: fadeIn 600ms
+}
+.header-image {
+  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.59)), url('https://images.unsplash.com/photo-1456324504439-367cee3b3c32?dpr?dpr=2&auto=format&fit=crop&w=1500&h=1011&q=80&cs=tinysrgb&crop=') center;
+}
+
+.add-spot-container {
+  position: absolute;
+  right: 50px;
+  top: 100px;
+
+  button {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.rearrange-comment{
+  text-align: center;
+  font-size: 20px;
+  margin: 50px;
+}
+
+.spot-list-container {
+  width: 50%;
+  margin: auto;
+  height: 300px;
+  overflow: auto;
+
+  .list-item-container {
+    position: relative;
+    z-index: 1;
+    margin: 0.5em 0;
+    width: 100%;
+    border: 2px solid #d6dee0;
+    border-left: 5px solid #d6dee0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .2s ease-out,border .2s ease-out;
+    display: flex;
+    justify-content: space-between;
+
+    .item-name {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .btn-close {
+      padding: 10px;
+    }
+  }
+
+  .list-item-container:hover {
+    border-color: #666;
+    border-left-color: #666;
+  }
+}

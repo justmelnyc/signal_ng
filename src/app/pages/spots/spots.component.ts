@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { DragulaService } from 'ng2-dragula';
-import { NotificationService } from '../../../_core/services';
+import { NotificationService } from '../../_core/services';
 
 @Component({
   selector: 'app-spots',

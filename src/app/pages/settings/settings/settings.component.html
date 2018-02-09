@@ -1,3 +1,19 @@
-<p>
-  settings works!
-</p>
+<section class="hero is-danger is-medium header-image">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1">
+        PlayList
+      </h1>
+    </div>
+  </div>
+</section>
+
+<div class="rearrange-comment">Select the Playlist to play the videos</div>
+
+<section class="spot-list-container">
+  <div class="list-item-container" *ngFor="let spot of spots_list | orderBy: 'order'">
+    <span class="item-name" (click)="playSpot(spot)">
+      {{spot.name}}
+    </span>
+  </div>
+</section>

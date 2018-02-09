@@ -5,9 +5,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
-import { SharedService, NotificationService } from '../../../../_core/services';
-import { ISpot } from '../../../../_core/interfaces/spot';
-import { FileUpload } from '../../../../_core/interfaces/file-upload';
+import { SharedService, NotificationService } from '../../../_core/services';
+import { ISpot } from '../../../_core/interfaces/spot';
+import { FileUpload } from '../../../_core/interfaces/file-upload';
 
 export enum EPageType {
   CreatePage,

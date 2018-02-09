@@ -6,8 +6,8 @@ import { NgArrayPipesModule } from 'ngx-pipes';
 
 import { SpotsRoutingModule } from './spots-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { SpotsComponent } from './spots/spots.component';
-import { SpotComponent } from './spots/spot/spot.component';
+import { SpotsComponent } from './spots.component';
+import { SpotComponent } from './spot/spot.component';
 
 @NgModule({
   imports: [
