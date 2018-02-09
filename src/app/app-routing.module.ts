@@ -11,23 +11,9 @@ const routes: Routes = [
     loadChildren: './pages/home/home.module#HomeModule',
     data: {animation: 'home'}
   }, {
-    path: 'contact',
-    loadChildren: './pages/contact/contact.module#ContactModule',
-    data: {animation: 'contact'}
-  }, {
     path: 'login',
     component: LoginComponent,
     data: {animation: 'login'}
-  }, {
-    path: 'reservations',
-    loadChildren: './pages/reservation/reservation.module#ReservationModule',
-    data: {animation: 'reservations'},
-    canActivate: [AuthGuard]
-  }, {
-    path: 'profile',
-    loadChildren: './pages/profile/profile.module#ProfileModule',
-    data: {animation: 'profile'},
-    canActivate: [AuthGuard]
   }, {
     path: 'accounts',
     loadChildren: './pages/users/users.module#UsersModule',
@@ -38,6 +24,16 @@ const routes: Routes = [
     loadChildren: './pages/spots/spots.module#SpotsModule',
     data: {animation: 'spots'},
     canActivate: [AuthGuard, RoleGuard]
+  }, {
+    path: 'settings',
+    loadChildren: './pages/settings/settings.module#SettingsModule',
+    data: {animation: 'settings'},
+    canActivate: [AuthGuard]
+  }, {
+    path: 'player/:uid',
+    loadChildren: './pages/player/player.module#PlayerModule',
+    data: {animation: 'player'},
+    canActivate: [AuthGuard]
   }
 ];
 

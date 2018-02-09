@@ -20,17 +20,11 @@
       <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}" class="navbar-item is-hidden-desktop-only" >
         Home
       </a>
-      <a routerLink="reservations" routerLinkActive="is-active" class="navbar-item is-hidden-desktop-only">
-        Reservations
-      </a>
       <a routerLink="accounts" routerLinkActive="is-active" class="navbar-item is-hidden-desktop-only" *ngIf="user !== null && user?.admin">
         Accounts
       </a>
-      <a routerLink="profile" routerLinkActive="is-active" class="navbar-item is-hidden-desktop-only">
-        Profile
-      </a>
-      <a routerLink="contact" routerLinkActive="is-active" class="navbar-item is-hidden-desktop-only">
-        Contact
+      <a routerLink="settings" routerLinkActive="is-active" class="navbar-item is-hidden-desktop-only" *ngIf="user !== null && !user?.admin">
+        Settings
       </a>
       <span class="navbar-item " >
             <a class="button is-warning" routerLink="login" *ngIf="user === null; else alreadyLoggedIn">
@@ -42,17 +36,6 @@
                   <img class="card-img-top" [src]="user?.photo || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
                 </a>
                 <div class="navbar-dropdown is-right">
-                  <a class="navbar-item " [routerLink]="['reservations', 'booking']">
-                    Book Reservation
-                  </a>
-                  <hr class="navbar-divider">
-                  <a class="navbar-item " [routerLink]="['profile']">
-                    Account
-                  </a>
-                  <a class="navbar-item" routerLink="login">
-                    Test Log In
-                  </a>
-                  <hr class="navbar-divider">
                   <a class="navbar-item" (click)="logoutUser()">
                     Sign Out
                   </a>
