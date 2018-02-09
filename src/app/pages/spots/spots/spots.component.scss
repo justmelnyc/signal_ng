@@ -17,12 +17,17 @@
   }
 }
 
+.rearrange-comment{
+  text-align: center;
+  font-size: 20px;
+  margin: 50px;
+}
+
 .spot-list-container {
   width: 50%;
   margin: auto;
   height: 300px;
   overflow: auto;
-  margin-top: 50px;
 
   .list-item-container {
     position: relative;

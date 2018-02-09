@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { ISpot } from '../../../_core/interfaces/spot';
+import { DragulaService } from 'ng2-dragula';
 import { NotificationService } from '../../../_core/services';
 
 @Component({
@@ -21,8 +21,13 @@ export class SpotsComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private adb: AngularFireDatabase,
-    private notificationService: NotificationService
-  ) { }
+    private notificationService: NotificationService,
+    private dragulaService: DragulaService
+  ) {
+    dragulaService.drop.subscribe((value) => {
+      this.rearrangeSpotList();
+    });
+  }
 
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe(params => {
@@ -42,6 +47,7 @@ export class SpotsComponent implements OnInit, OnDestroy {
     this.adb.list(`spots`, ref => ref.orderByChild('uid').equalTo(this.userId))
       .snapshotChanges()
       .subscribe(spots => {
+        this.spots_list = [];
         spots.map(spot => {
           this.spots_list.push({
             id: spot.key,
@@ -76,5 +82,13 @@ export class SpotsComponent implements OnInit, OnDestroy {
         'warning'
       );
     }
+  }
+
+  rearrangeSpotList() {
+    this.spots_list.map((spot, index) => {
+      spot.order = index;
+      const spotId = spot.id;
+      this.adb.object(`spots/${spotId}`).update(spot)
+    });
   }
 }

@@ -14,11 +14,15 @@
   </div>
 </section>
 
+<div class="rearrange-comment">Drag and Drop the Spot to rearrange</div>
+
 <section class="spot-list-container">
-  <div class="list-item-container" *ngFor="let spot of spots_list">
+  <div [dragula]='"spotList"' [dragulaModel]='spots_list'>
+    <div class="list-item-container" *ngFor="let spot of spots_list | orderBy: 'order'">
     <span class="item-name" (click)="editSpot(spot)">
       {{spot.name}}
     </span>
-    <span class="fa fa-close btn-close" (click)="deleteSpot(spot)"></span>
+      <span class="fa fa-close btn-close" (click)="deleteSpot(spot)"></span>
+    </div>
   </div>
 </section>

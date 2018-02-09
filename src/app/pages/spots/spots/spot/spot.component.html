@@ -31,7 +31,7 @@
   </div>
 </section>
 
-<section class="playlist-container">
+<section class="playlist-container" [dragula]='"videoList"'>
   <div class="list-item-container" *ngFor="let video of newSpot.videos">
     <span class="item-name">
       {{video.name}}
