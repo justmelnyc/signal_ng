@@ -43,15 +43,17 @@ export class PlayerComponent implements OnInit {
     this.adb.object(`spots/${this.spotId}`).valueChanges()
       .subscribe((res: ISpot) => {
         console.log('getPlaylist = ', res);
-        res.videos.map((video: FileUpload) => {
-          this.playlist.push({
-            title: video.name,
-            src: video.url,
-            type: 'video/mp4'
-          })
-        });
+        if (res.videos) {
+          res.videos.map((video: FileUpload) => {
+            this.playlist.push({
+              title: video.name,
+              src: video.url,
+              type: video.type
+            })
+          });
 
-        this.currentItem = this.playlist[this.currentIndex];
+          this.currentItem = this.playlist[this.currentIndex];
+        }
       });
   }
 
