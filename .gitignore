@@ -2,12 +2,19 @@
 
 # compiled output
 /dist
+<<<<<<< HEAD
 /dist-server
+=======
+>>>>>>> af19ad8012fc46369f5395e824a28cec76703f44
 /tmp
 /out-tsc
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
+=======
+/functions/node_modules
+>>>>>>> af19ad8012fc46369f5395e824a28cec76703f44
 
 # IDEs and editors
 /.idea
@@ -31,7 +38,10 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
+<<<<<<< HEAD
 yarn-error.log
+=======
+>>>>>>> af19ad8012fc46369f5395e824a28cec76703f44
 testem.log
 /typings
 

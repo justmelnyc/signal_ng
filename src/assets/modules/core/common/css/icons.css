@@ -1,0 +1,22 @@
+/*  ICONS STYLES FOR "CORE" MODULE */
+.lnr {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.05em;
+  /*color: #d2d9e5;*/
+  font-size: 1rem;
+}
+
+/*.lnr-menu, .lnr-cross, .lnr-page-break {*/
+  /*color: #d2d9e5;*/
+/*}*/
+.lnr-page-break {
+  color: #74708d;
+}
+.lnr-arrow-up {
+  color: #6FF0C5;
+  font-size: 1.5rem;
+
+}

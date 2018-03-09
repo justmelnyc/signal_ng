@@ -1,27 +1,27 @@
-# Signal
+### Important Information ###
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
+This repository now contains only source files. For build see Installation section. With 2.1.0 update the Angular version moved to another GIT repository. Now it's separate product which updates asynchronously with the static version (in few days after release here). All new users will be added to both repositories (static and angular). Thanks!
 
-## Development server
+### Description ###
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular version of Clean UI Admin Template.
 
-## Code scaffolding
+Clean UI is the first framework in the world, which uses the concept of modularity. The use of such approach allows you to drastically reduce the time and cost of development. Build the interface from the ready blocks and modules quickly and easily, like Lego! And all this is available now for Angular (version 2 or higher).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This is a completely modular framework, built on the latest technologies, such as BEM methodology (Block Element Modifier). You can learn more about the methodology here. Following the simple and understandable rules of this methodology allows the easy support of code even after long-term development. Adding new functionality and modifying the old one has never been so easy before. The presence of a variety of useful development methodologies make this process easier and more enjoyable; for example, such feature as rem measurement units make mobile versions of applications, built on the basis of Clean UI, look great on any type of devices. Open our template on your mobile phone and be sure to verify it yourself!
 
-## Build
+Clean UI - a modern professional admin template, based on Bootstrap 4 framework. It's a powerful and super flexible tool, which suits best for any kind of web application: Web Applications; CRM; CMS; Admin Panels; Dashboards; etc. Clean UI is fully responsive, which means that it looks perfect on mobiles and tablets.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Our template is fully based on SASS pre-processor, includes 50+ commented SASS files. Each file corresponds to a single component, layout, page, plugin or extension – so you can easily find necessary piece of code and edit it for your needs. The package includes CSS files compiled from SASS.
 
-## Running unit tests
+### Installation ###
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Please read documentation [http://admin.cleanuitemplate.com/livepreview/v/vertical-menu-visible.html#/documentation/index](http://admin.cleanuitemplate.com/livepreview/v/vertical-menu-visible.html#/documentation/index).
 
-## Running end-to-end tests
+### Git Repository ###
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Please send purchase code and your email to support@cleanuitemplate.com for get access to GIT repository.
 
-## Further help
+### Support ###
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Use GitHub Issues for tracking bugs or write to [support@cleanuitemplate.com](mailto:support@cleanuitemplate.com).

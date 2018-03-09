@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { CleanUiPage } from './app.po';
 
-describe('signal App', () => {
-  let page: AppPage;
+describe('clean-ui App', () => {
+  let page: CleanUiPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new CleanUiPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
