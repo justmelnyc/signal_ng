@@ -22,7 +22,7 @@ import { environment } from '../environments/environment'
 import {AccountModule} from './account/account.module'
 import { SharedModule } from './shared/shared.module'
 
-declare var NProgress: any;
+declare const NProgress: any;
 
 @NgModule({
     declarations: [

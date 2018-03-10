@@ -20,12 +20,33 @@ declare const jQuery: any;
               <h2 class="pull-right">00:32</h2>
             </div>
           </div>
+          <div class="preview" style="height: 160px; background-color: #454a4e">
+            <div class="labels">
+              <h2>Preview</h2>
+              <h2 class="pull-right">00:32</h2>
+            </div>
+          </div>
+          <div class="preview" style="height: 160px; background-color: #454a4e">
+            <div class="labels">
+              <h2>Preview</h2>
+              <h2 class="pull-right">00:32</h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
   `,
-  styles: []
+  styles: [`
+    .preview {
+      border-radius: .25rem;
+    }
+    .cat__menu-right__label {
+      font-size: .8rem;
+      letter-spacing: .1rem;
+      font-weight: normal;
+    }
+  `]
 })
 export class VerticalTimelineComponent implements OnInit {
 
@@ -54,8 +75,8 @@ export class VerticalTimelineComponent implements OnInit {
         autoReinitialise: true,
         autoReinitialiseDelay: 100
       });
-      const api = $(this).data('jsp'),
-        throttleTimeout;
+      const api = $(this).data('jsp');
+        let throttleTimeout;
       $(window).bind('resize', function () {
         if (!throttleTimeout) {
           throttleTimeout = setTimeout(function () {
@@ -76,7 +97,7 @@ export class VerticalTimelineComponent implements OnInit {
       buttons = $(this).find('.btn');
 
     // detect current options and set active buttons
-    const found = false;
+    let found = false;
     inputs.each(function() {
 
       if ($('body').hasClass($(this).val())) {
@@ -92,8 +113,8 @@ export class VerticalTimelineComponent implements OnInit {
 
     // change options on click
     $(this).find('.btn').on('click', function() {
-      const removeClasses = '',
-        addClass = $(this).find('input').val();
+      let removeClasses = '';
+        let addClass = $(this).find('input').val();
 
       buttons.removeClass('active');
       $(this).addClass('active');

@@ -4,7 +4,11 @@ declare const jQuery: any;
 @Component({
   selector: 'vertical-navigator',
   templateUrl: 'menu.html',
-  styles: []
+  styles: [`
+    .cat__menu-left__item-link {
+      line-height: 22px;
+    }
+  `]
 })
 export class VerticalNavigatorComponent implements OnInit {
 
@@ -60,8 +64,8 @@ export class VerticalNavigatorComponent implements OnInit {
           autoReinitialise: true,
           autoReinitialiseDelay: 100
         });
-        const api = $(this).data('jsp'),
-          throttleTimeout;
+        const api = $(this).data('jsp');
+          let throttleTimeout;
         $(window).bind('resize', function () {
           if (!throttleTimeout) {
             throttleTimeout = setTimeout(function () {

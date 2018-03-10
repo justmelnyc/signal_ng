@@ -5,11 +5,13 @@ import { AccountRoutingModule } from './account.routing';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AccountComponent } from './account/account.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
+import {SharedModule} from '../shared/shared.module'
 
 @NgModule({
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    SharedModule
   ],
   declarations: [AccountsComponent, AccountComponent, AccountCreateComponent]
 })

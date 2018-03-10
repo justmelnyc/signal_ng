@@ -5,16 +5,18 @@ import { NavigatorComponent } from './components/navigator';
 import { VerticalTimelineComponent } from './components/vertical-timeline'
 import { VerticalNavigatorComponent } from './components/vertical-navigator'
 import { FooterComponent } from './components/footer'
+import {SubnavComponent} from './components/navigator-subnav';
+import { CapitalizePipe } from './pipes/capitalize.pipe'
+// import {MatchHeightDirective} from './directives/match-height.directive'
 
-const COMPONENTS = [NavigatorComponent, FooterComponent, VerticalTimelineComponent, VerticalNavigatorComponent]
+const DECLARATIONS = [NavigatorComponent, FooterComponent, VerticalTimelineComponent, VerticalNavigatorComponent, SubnavComponent, CapitalizePipe]
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  declarations: COMPONENTS,
-  exports: [
-    COMPONENTS
-  ]
+  declarations: DECLARATIONS,
+  exports: [ DECLARATIONS ]
 })
 export class SharedModule { }

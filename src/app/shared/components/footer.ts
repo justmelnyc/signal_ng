@@ -56,6 +56,7 @@ import { Component, OnInit } from '@angular/core';
                   <circle cx="13.8" cy="13.8" r="2.5"></circle></g></svg>
               <span class="css-edgmc0">Grid View</span>
             </button>
+            <button class="IconTab TabButton" type="button"><svg class="RelationshipIcon SVGIcon" width="20" height="20"><g><circle cx="7.5" cy="4.8" r="1.8"></circle><path d="M7.5 8.6c-1.9 0-3.5 1.6-3.5 3.5v2.9h7v-2.9M12.7 6.1v5M15.2 8.6h-5"></path></g></svg></button>
           </div>
         </div>
       </div>
@@ -69,7 +70,8 @@ import { Component, OnInit } from '@angular/core';
       left: 0px;
       height: 4.3125rem;
       z-index: 1030;
-      color: rgb(170, 170, 170);
+      /*color: rgb(170, 170, 170);*/
+      color: #000000;
     }
     
     button {
@@ -97,14 +99,17 @@ import { Component, OnInit } from '@angular/core';
     .footer-content {
       padding-left: 0.625rem;
       width: 100%;
-      background-color: rgb(229, 229, 229);
+      /*background-color: rgb(229, 229, 229);*/
+      background-color: #FFFFFF;
       padding-right: 0.625rem;
       transform: translate3d(0px, calc(-100% + 0.9375rem), 0px);
       height: 5rem;
       position: relative;
       margin: 0px;
       transition: -webkit-transform 150ms ease, transform 150ms ease;
-      
+      border-top: 1px solid #e4e9f0;
+
+
     }
     
     .footer-container {
@@ -132,7 +137,8 @@ import { Component, OnInit } from '@angular/core';
       vertical-align: middle;
       border-bottom: 0px;
       /*font-size: 14px;*/
-      color: rgb(170, 170, 170);
+      /*color: rgb(170, 170, 170);*/
+      color: #000000;
     }
 
     .footer-tools {
@@ -144,16 +150,16 @@ import { Component, OnInit } from '@angular/core';
       top: 0px;
       height: 100%;
     }
-    .footer-tools::before {
-      position: absolute;
-      z-index: 2;
-      top: 0px;
-      bottom: 0px;
-      left: -1.25rem;
-      width: 1.25rem;
-      content: "";
-      background: linear-gradient(to right, rgba(229, 229, 229, 0) 0%, rgb(229, 229, 229) 90%);
-    }
+    /*.footer-tools::before {*/
+      /*position: absolute;*/
+      /*z-index: 2;*/
+      /*top: 0px;*/
+      /*bottom: 0px;*/
+      /*left: -1.25rem;*/
+      /*width: 1.25rem;*/
+      /*content: "";*/
+      /*background: linear-gradient(to right, rgba(229, 229, 229, 0) 0%, rgb(229, 229, 229) 90%);*/
+    /*}*/
     .top-tool .footer-tool {
       display: inline-block;
       font-size: 0.75rem;
@@ -216,9 +222,7 @@ import { Component, OnInit } from '@angular/core';
       overflow: hidden;
       transition: width 0.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
-  
-
-
+    
   `],
 
 })

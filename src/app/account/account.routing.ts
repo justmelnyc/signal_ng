@@ -5,7 +5,7 @@ import {AccountComponent} from './account/account.component'
 import {AccountCreateComponent} from './account-create/account-create.component'
 
 const routes: Routes = [
-    { path: 'accounts', component: AccountsComponent },
+    { path: 'accounts', component: AccountsComponent, data: { title: 'accounts'} },
     { path: 'accounts-create', component: AccountCreateComponent },
     { path: 'accounts-access-key', component: AccountCreateComponent },
     { path: 'accounts/:username', component: AccountComponent },
