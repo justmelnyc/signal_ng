@@ -1,0 +1,197 @@
+.CategoryTabBar{
+	position:absolute;
+	right:0;
+	bottom:-4.375rem;
+	left:0;
+	z-index:2;
+	height:4.375rem;
+	font-size:.75rem;
+	color:#fff;
+	white-space:nowrap;
+	background-color:#000;
+	border-bottom:1px solid #fff
+}
+@media (max-width:23.375em){
+	.CategoryTabBar{
+		bottom:-3.125rem;
+		height:3.125rem
+}
+}
+@media (max-width:39.9375em){
+	.isProfileMenuActive~.Navbar .CategoryTabBar{
+		display:none
+}
+}
+.CategoryTabs{
+	width:calc(100% - 4.375rem);
+	-webkit-overflow-scrolling:touch;
+	overflow-x:auto;
+	overflow-y:hidden;
+	white-space:nowrap
+}
+.CategoryTabBarUtility,.CategoryTabs{
+	position:relative;
+	display:inline-block;
+	height:100%;
+	vertical-align:top
+}
+.CategoryTabBarUtility{
+	width:4.375rem;
+	padding-right:.625rem;
+	text-align:right;
+	background-color:#000
+}
+.CategoryTabBarUtility:before{
+	position:absolute;
+	top:0;
+	left:-1.25rem;
+	z-index:2;
+	width:1.25rem;
+	height:100%;
+	content:"";
+	background:linear-gradient(90deg,transparent 0,#000 90%)
+}
+.CategoryTab{
+	position:relative;
+	display:inline-block;
+	width:6.25rem;
+	height:100%;
+	padding:0 .625rem;
+	overflow:hidden;
+	text-align:center;
+	white-space:normal;
+	vertical-align:top;
+	background-color:#000;
+	background-size:cover;
+	transition:color .2s ease
+}
+.CategoryTab:before{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:1;
+	content:"";
+	background-color:rgba(0,0,0,.6);
+	transition:background-color .2s ease
+}
+.CategoryTab.isActive:before,.CategoryTab:active:before,.no-touch .CategoryTab:hover:before{
+	background-color:rgba(0,0,0,.8)
+}
+.CategoryTab+.CategoryTab{
+	border-left:1px solid #fff
+}
+.CategoryTabLabel{
+	position:relative;
+	z-index:2;
+	-webkit-box-align:center;
+	align-items:center
+}
+.CategoryTabLabel,.CategoryUtilTab{
+	display:-webkit-box;
+	display:flex;
+	-webkit-box-pack:center;
+	justify-content:center;
+	width:100%;
+	height:100%
+}
+.CategoryUtilTab{
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	flex-direction:column
+}
+@media (min-width:40em){
+	.CategoryTabBar{
+		bottom:-5rem;
+		height:5rem;
+		font-size:.875rem
+}
+	.CategoryTabs{
+		width:calc(100% - 5.625rem)
+}
+	.CategoryTabBarUtility{
+		width:5.625rem;
+		padding-right:1.25rem
+}
+	.CategoryTabBarUtility:before{
+		left:-1.875rem;
+		width:1.875rem
+}
+	.CategoryTab{
+		width:7.5rem
+}
+}
+@media (min-width:85em){
+	.CategoryTabBarUtility{
+		position:absolute;
+		top:0;
+		right:0;
+		padding-right:2.5rem
+}
+	.CategoryTabs{
+		display:-webkit-box;
+		display:flex;
+		width:calc(100% - 5.625rem)
+}
+	.CategoryTab{
+		width:100%;
+		min-width:7.5rem
+}
+}
+.LabelTab{
+	position:relative;
+	margin-right:.9375rem;
+	overflow:hidden;
+	font-size:1.125rem;
+	line-height:1.35;
+	color:#aaa;
+	white-space:nowrap;
+	transition:color .2s ease
+}
+.LabelTab:after{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:0;
+	height:1px;
+	content:"";
+	background-color:transparent;
+	transition:width .2s cubic-bezier(.23,1,.32,1),background-color .2s ease
+}
+.LabelTab.isActive,.LabelTab:active,.no-touch .LabelTab:hover{
+	color:#000
+}
+.LabelTab.isActive:after,.LabelTab:active:after,.no-touch .LabelTab:hover:after{
+	width:100%;
+	background-color:#000
+}
+.PostDetail .LabelTab{
+	font-size:1rem
+}
+@media (min-width:40em){
+	.LabelTab{
+		margin-right:1.875rem
+}
+	.LabelTab:not(.SearchLabelTab){
+		height:2.5rem;
+		font-size:1.5rem;
+		line-height:2.5rem
+}
+}
+.IconTab{
+	height:1.875rem;
+	font-size:.75rem;
+	line-height:1.875rem;
+	color:#aaa;
+	text-align:center;
+	background-color:#e5e5e5;
+	transition:background-color .2s ease,color .2s ease
+}
+.IconTab+.IconTab{
+	border-left:1px solid #fff
+}
+.IconTab.isActive,.IconTab:active,.no-touch .IconTab:hover{
+	color:#fff;
+	background-color:#000
+}

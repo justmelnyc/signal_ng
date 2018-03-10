@@ -1,0 +1,170 @@
+.Settings{
+	position:relative;
+	max-width:90rem;
+	padding:0 .625rem 3.75rem;
+	margin:0 auto
+}
+.SettingsCoverPicker{
+	position:relative;
+	margin-bottom:2.5rem
+}
+.SettingsBody{
+	position:relative;
+	max-width:64rem;
+	margin:0 auto
+}
+.SettingsRight{
+	padding-left:0
+}
+.SettingsHeader{
+	margin-top:1.25rem
+}
+.SettingsPreferences{
+	margin-top:3.125rem
+}
+.SettingsPreferences .StreamContainer{
+	position:relative;
+	padding:0
+}
+.SettingsHeading{
+	font-family:AtlasGroteskBlack,AtlasGrotesk-Black,Helvetica Neue,HelveticaNeue,Helvetica,sans-serif;
+	font-style:normal;
+	font-weight:400;
+	height:2.5rem;
+	font-size:1.125rem;
+	white-space:nowrap
+}
+.SettingsHeader>p{
+	max-width:30rem;
+	margin:0 0 1.125rem;
+	color:#aaa
+}
+.SettingsLinks{
+	display:-webkit-box;
+	display:flex;
+	-webkit-box-pack:end;
+	justify-content:flex-end;
+	margin-left:-.9375rem
+}
+.SettingsLinks>*{
+	margin-left:.9375rem
+}
+.SettingsCredentialActions{
+	position:relative;
+	height:0;
+	overflow:hidden;
+	text-align:right;
+	transition:height .2s ease
+}
+.SettingsCredentialActions.requiresSave{
+	height:15rem
+}
+.SettingsCredentialActions p{
+	text-align:left
+}
+.SettingsAvatarPicker{
+	margin-bottom:2.5rem
+}
+@media (min-width:40em){
+	.SettingsHeading{
+		font-size:1.5rem
+}
+	.Settings{
+		padding-right:1.25rem;
+		padding-left:1.25rem
+}
+	.SettingsCoverPicker{
+		margin-bottom:5.3125rem
+}
+	.SettingsAvatarPicker{
+		position:absolute
+}
+	.SettingsRight{
+		padding-left:15rem
+}
+	.Settings .Uploader.isCoverUploader p:after{
+		content:"."
+}
+}
+@media (min-width:85em){
+	.Settings{
+		padding-right:2.5rem;
+		padding-left:2.5rem
+}
+}
+.SettingsCell{
+	position:relative;
+	padding-top:1.875rem;
+	padding-bottom:1.6875rem
+}
+.SettingsButton{
+	display:inline-block;
+	min-width:5rem;
+	height:1.875rem;
+	padding:0 .9375rem;
+	font-size:.875rem;
+	line-height:1.875rem;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	background-color:#aaa;
+	border:1px solid #aaa;
+	border-radius:.3125rem;
+	transition:background-color .2s ease,border-color .2s ease,color .2s ease
+}
+.isFirefox .SettingsButton{
+	line-height:1.75rem
+}
+.no-touch .SettingsButton:hover{
+	color:#aaa;
+	background-color:#fff;
+	border-color:#aaa
+}
+.no-touch .SettingsButton.asDangerous{
+	color:#fff;
+	background-color:red;
+	border-color:red
+}
+.SettingsCell .SettingsButton{
+	position:absolute;
+	top:1.875rem;
+	right:0
+}
+.SettingsDataDescription{
+	max-width:37.5rem;
+	margin-top:1.875rem!important;
+	color:#aaa
+}
+.SettingsDefinition{
+	width:calc(100% - 6.25rem);
+	max-width:27.5rem
+}
+.SettingsDefinition dd{
+	margin-top:1.25rem;
+	color:#aaa
+}
+.no-touch .SettingsDefinition dd a:hover{
+	color:#666
+}
+.SettingsDefinitionValues{
+	line-height:2.5rem;
+	color:#aaa
+}
+.SettingsDefinitionValues dt{
+	float:left;
+	width:6.25rem;
+	overflow:hidden;
+	clear:left;
+	text-overflow:ellipsis;
+	white-space:nowrap
+}
+.SettingsDefinitionValues dd{
+	margin-left:7.5rem
+}
+.SettingsDefinitionValues a{
+	text-decoration:underline;
+	border-bottom:0
+}
+.no-touch .SettingsDefinitionValues a:hover{
+	color:#666
+}

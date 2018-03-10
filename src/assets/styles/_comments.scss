@@ -1,0 +1,141 @@
+.Comments{
+	position:relative;
+	max-width:40rem
+}
+.isLoggedOut .PostDetail .Comments{
+	margin-top:.3125rem
+}
+.Comment{
+	position:relative;
+	padding-top:1.25rem
+}
+.CommentHeader{
+	position:relative;
+	height:1.875rem;
+	font-size:.875rem;
+	color:#aaa;
+	background-color:#fff
+}
+.CommentHeaderAuthor{
+	position:relative;
+	display:inline-block;
+	max-width:calc(100% - 3.125rem);
+	padding-left:2.5rem;
+	line-height:1.875rem;
+	vertical-align:middle
+}
+.CommentHeaderLink{
+	max-width:100%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	vertical-align:middle
+}
+.no-touch .CommentHeaderLink:hover{
+	color:#535353
+}
+.CommentBody{
+	padding-bottom:1.25rem;
+	margin-left:2.5rem;
+	border-bottom:1px solid #e5e5e5
+}
+.CommentTools.PostTools{
+	position:absolute;
+	top:1.25rem;
+	right:0;
+	display:-webkit-box;
+	display:flex;
+	padding-top:0
+}
+.CommentTools .ShyTool{
+	position:absolute;
+	right:-2.5rem;
+	z-index:3
+}
+.CommentTools .ShyTool+.ShyTool{
+	right:-4.375rem
+}
+.Posts .CommentTools .TimeAgoTool{
+	display:inline-block;
+	color:#aaa;
+	cursor:default
+}
+.CommentTools .MoreTool>button{
+	padding-right:0
+}
+.CommentBody .ImageAttachment{
+	height:auto
+}
+@media (max-width:39.9375em){
+	.CommentTools.PostTools.isMoreToolActive{
+		-webkit-transform:translate3d(-3.75rem,0,0);
+		transform:translate3d(-3.75rem,0,0)
+}
+	.CommentTools.PostTools.isMoreToolActive.isShyToolSolo{
+		-webkit-transform:translate3d(-1.875rem,0,0);
+		transform:translate3d(-1.875rem,0,0)
+}
+	.CommentTools.isMoreToolActive>.ShyTool{
+		pointer-events:auto;
+		opacity:1
+}
+	.CommentTools:not(.isMoreToolActive)>.ShyTool,.Posts.asGrid .CommentTools .MoreTool{
+		display:none
+}
+}
+@media (min-width:40em){
+	.CommentHeader{
+		height:1.5625rem
+}
+	.CommentHeaderAuthor{
+		padding-left:3.75rem;
+		line-height:1.25rem
+}
+	.CommentBody{
+		margin-left:3.75rem
+}
+	.CommentTools .MoreTool{
+		display:none
+}
+	.no-touch .CommentTools .ShyTool{
+		display:inline-block!important;
+		pointer-events:none;
+		opacity:0
+}
+	.ShyTools{
+		position:relative;
+		display:-webkit-box;
+		display:flex;
+		transition:margin-left .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1);
+		transition:margin-left .2s cubic-bezier(.23,1,.32,1),transform .2s cubic-bezier(.23,1,.32,1);
+		transition:margin-left .2s cubic-bezier(.23,1,.32,1),transform .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1)
+}
+	.ShyTools:before{
+		position:absolute;
+		top:0;
+		bottom:0;
+		left:-1.25rem;
+		width:1.875rem;
+		content:""
+}
+	.no-touch .CommentTools.PostTools .ShyTools:hover{
+		margin-left:3.75rem;
+		-webkit-transform:translate3d(-3.75rem,0,0);
+		transform:translate3d(-3.75rem,0,0)
+}
+	.no-touch .CommentTools.PostTools .ShyTools:hover:before{
+		width:5.625rem
+}
+	.no-touch .CommentTools.PostTools.isShyToolSolo .ShyTools:hover{
+		margin-left:1.875rem;
+		-webkit-transform:translate3d(-1.875rem,0,0);
+		transform:translate3d(-1.875rem,0,0)
+}
+	.no-touch .CommentTools.PostTools.isShyToolSolo .ShyTools:hover:before{
+		width:3.75rem
+}
+	.no-touch .CommentTools.PostTools .ShyTools:hover .ShyTool{
+		pointer-events:auto;
+		opacity:1
+}
+}

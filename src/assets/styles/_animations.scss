@@ -1,0 +1,144 @@
+@-webkit-keyframes animateLavaLamp{
+	0%{
+		background-color:rgba(0,0,0,.1)
+}
+	25%{
+		background-color:rgba(128,0,128,.1)
+}
+	50%{
+		background-color:rgba(0,128,0,.1)
+}
+	75%{
+		background-color:rgba(128,0,128,.1)
+}
+	to{
+		background-color:rgba(0,0,0,.1)
+}
+}
+@keyframes animateLavaLamp{
+	0%{
+		background-color:rgba(0,0,0,.1)
+}
+	25%{
+		background-color:rgba(128,0,128,.1)
+}
+	50%{
+		background-color:rgba(0,128,0,.1)
+}
+	75%{
+		background-color:rgba(128,0,128,.1)
+}
+	to{
+		background-color:rgba(0,0,0,.1)
+}
+}
+@-webkit-keyframes animateCommentsLoading{
+	0%{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+	50%{
+		-webkit-transform:translateX(.5625rem);
+		transform:translateX(.5625rem)
+}
+	to{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+}
+@keyframes animateCommentsLoading{
+	0%{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+	50%{
+		-webkit-transform:translateX(.5625rem);
+		transform:translateX(.5625rem)
+}
+	to{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+}
+@-webkit-keyframes animateIsBusy{
+	0%{
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg)
+}
+	to{
+		-webkit-transform:rotate(2turn);
+		transform:rotate(2turn)
+}
+}
+@keyframes animateIsBusy{
+	0%{
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg)
+}
+	to{
+		-webkit-transform:rotate(2turn);
+		transform:rotate(2turn)
+}
+}
+@-webkit-keyframes animateIsBusyButton{
+	0%{
+		-webkit-transform:rotate(0deg) scale(.5);
+		transform:rotate(0deg) scale(.5)
+}
+	to{
+		-webkit-transform:rotate(2turn) scale(.5);
+		transform:rotate(2turn) scale(.5)
+}
+}
+@keyframes animateIsBusyButton{
+	0%{
+		-webkit-transform:rotate(0deg) scale(.5);
+		transform:rotate(0deg) scale(.5)
+}
+	to{
+		-webkit-transform:rotate(2turn) scale(.5);
+		transform:rotate(2turn) scale(.5)
+}
+}
+@-webkit-keyframes animateUploaderMover{
+	0%{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+	to{
+		-webkit-transform:translateX(calc(100% + .625rem));
+		transform:translateX(calc(100% + .625rem))
+}
+}
+@keyframes animateUploaderMover{
+	0%{
+		-webkit-transform:translateX(0);
+		transform:translateX(0)
+}
+	to{
+		-webkit-transform:translateX(calc(100% + .625rem));
+		transform:translateX(calc(100% + .625rem))
+}
+}
+@-webkit-keyframes paginatorLoading{
+	0%{
+		background-position:0 50%
+}
+	50%{
+		background-position:100% 50%
+}
+	to{
+		background-position:0 50%
+}
+}
+@keyframes paginatorLoading{
+	0%{
+		background-position:0 50%
+}
+	50%{
+		background-position:100% 50%
+}
+	to{
+		background-position:0 50%
+}
+}

@@ -1,0 +1,39 @@
+.Search .FormControl{
+	max-width:none
+}
+.Search .SearchControl .FormControlInput{
+	font-family:AtlasGroteskBlack,AtlasGrotesk-Black,Helvetica Neue,HelveticaNeue,Helvetica,sans-serif;
+	font-style:normal;
+	font-weight:400;
+	font-size:1.5rem
+}
+.Search .SearchControl .FormControlLabel{
+	display:none
+}
+.Search .SearchTabList{
+	margin-top:1.125rem
+}
+.Search .SearchTabList button{
+	width:50%;
+	padding-bottom:.625rem;
+	margin:0;
+	font-size:.875rem
+}
+.Search .LabelTab:after{
+	width:100%;
+	background-color:#aaa
+}
+.Search .LabelTab.isActive:after,.Search .LabelTab:active:after{
+	background-color:#000
+}
+.Search .FormControlInput{
+	border-bottom:0
+}
+.Search .SearchControl{
+	padding:.625rem .625rem .625rem 3.75rem;
+	background-color:#f2f2f2;
+	border-radius:.3125rem
+}
+.Search .SearchIcon g{
+	stroke:#aaa
+}

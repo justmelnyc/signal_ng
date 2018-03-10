@@ -1,0 +1,87 @@
+.Authentication{
+	display:-webkit-box;
+	display:flex;
+	min-width:100vw;
+	min-height:100vh;
+	color:#fff;
+	background-color:transparent
+}
+.AuthenticationFormDialog{
+	position:relative;
+	z-index:1;
+	width:18.75rem;
+	margin:0 auto
+}
+.AuthenticationFormDialog.inModal{
+	width:calc(100% - 2.5rem);
+	max-width:37.5rem;
+	min-height:26.875rem;
+	padding:3.125rem 1.25rem 1.25rem
+}
+.AuthenticationFormDialog.inModal .AuthenticationForm{
+	max-width:none
+}
+.AuthenticationFormDialog h1,.Authentication h1{
+	padding-top:6.25rem;
+	font-size:1.5rem;
+	line-height:1
+}
+.AuthenticationFormDialog.inModal h1{
+	padding-top:0!important
+}
+.AuthenticationFormDialog h1+h2,.AuthenticationFormDialog h2+.AuthenticationForm{
+	margin-top:1.875rem
+}
+.AuthenticationFormDialog h1+.AuthenticationForm,.AuthenticationFormDialog h2+.AuthenticationForm{
+	margin-top:2.5rem
+}
+.Authentication h1>.Emoji{
+	margin-right:.625rem
+}
+.AuthenticationForm{
+	max-width:20rem
+}
+.AuthenticationFormDialog>p{
+	margin-top:3.4375rem;
+	font-size:.875rem;
+	color:#fff
+}
+.AuthenticationError.accessDenied{
+	padding-top:.75rem;
+	color:red
+}
+.AuthenticationFormDialog a:active,.AuthenticationFormDialog a:focus,.no-touch .AuthenticationFormDialog a:hover{
+	color:#fff
+}
+.isAuthenticationView.isNavbarHidden~.Navbar{
+	-webkit-transform:translateZ(0);
+	transform:translateZ(0)
+}
+@media (max-width:39.9375em){
+	.JoinForm{
+		margin-top:7.5rem
+}
+}
+@media (min-width:21.875em){
+	.AuthenticationFormDialog{
+		width:20rem
+}
+}
+@media (min-width:40em){
+	.AuthenticationFormDialog{
+		margin:auto
+}
+	.isIE11 .AuthenticationFormDialog{
+		margin-top:7.5rem
+}
+	.AuthenticationFormDialog h1,.Authentication h1{
+		padding-top:0
+}
+	.AuthenticationFormDialog.inModal{
+		width:100%;
+		padding:4.375rem 1.875rem 1.875rem
+}
+	.AuthenticationFormDialog.inModal .AuthenticationForm{
+		margin-bottom:1.875rem
+}
+}

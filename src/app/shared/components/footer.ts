@@ -3,77 +3,223 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'sig-footer',
   template: `
-    <div class="cat__footer">
-      <div class="cat__footer__top">
-        <div class="row">
-          <div class="col-lg-6 mb-3">
-            <div class="mb-3">
-              <strong>Check Out Preselected Demos</strong>
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <ul class="list-unstyled mb-3">
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Vertical Menu (Default)</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Ecommerce Version</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Horizontal Menu + Boxed Container</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Iconbar Vertical Menu</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Inverse Color Scheme</a></li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <ul class="list-unstyled mb-3">
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Super Clean Mode + Menu Shadow</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Horizontal Menu</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Compact Horizontal Menu</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Vertical Menu + Boxed</a></li>
-                  <li class="mb-2"><a target="_blank" href="javascript: void(0);">Horizontal Menu + Boxed</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-3">
-            <div class="mb-3">
-              <strong>Check Out Preselected Demos</strong>
-            </div>
-            <div class="cat__footer__description">
-              <p>Clean UI – a modern professional admin template, based on Bootstrap 4
-                framework. Clean UI is a powerful and super flexible tool, which suits best for any
-                kind of web application: Web Applications; CRM; CMS; Admin Panels; Dashboards; etc.
-                Clean UI is fully responsive, which means that it looks perfect on mobiles and
-                tablets</p>
-
-              <p>Clean UI is fully based on SASS pre-processor, includes 50+ commented SASS files.
-                Each file corresponds to a single component, layout, page, plugin or extension –
-                so you can easily find necessary piece of code and edit it for your needs.
-                The package includes both normal and minified CSS files, compiled from SASS</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cat__footer__bottom">
-        <div class="row">
-          <div class="col-md-4">
-            <a href="https://themeforest.net/item/clean-ui-admin-template-modular-trendy-design-modules-market-bem-angular-2-visual-builder/19597589?s_rank=4&ref=mediatec_software" target="_blank" onclick="yaCounter43604639.reachGoal('buy_sho_foo');" target="_blank" class="btn btn-default btn-rounded">
-              Buy Now <span style="text-decoration: line-through;">20</span> 25$
+    <footer class="Footer css-mhko7m" role="contentinfo">
+      <div class="grabber css-rpdx7d"></div>
+      <div class="footer-content css-11h01c3">
+        <div class="footer-container css-1j4orw">
+          <div class="footer-menu">
+            <a class="footer-menu-item" href="/wtf/artists/" target="_blank">
+              <span class="footer-menu-item-a">About</span>
+            </a>
+            <a class="footer-menu-item" href="/wtf/support/" target="_blank">
+              <span class="footer-menu-item-a">Help</span>
+            </a>
+            <a class="footer-menu-item" href="/elloblog" target="_blank">
+              <span class="footer-menu-item-a">Blog</span>
+            </a>
+            <a class="footer-menu-item" href="https://store.ello.co" target="_blank">
+              <span class="footer-menu-item-a">Store</span>
+            </a>
+            <a class="footer-menu-item" href="/wtf/resources/apps/" target="_blank">
+              <span class="footer-menu-item-a">Apps</span>
+            </a>
+            <a class="footer-menu-item" href="/wtf/policies/terms/" target="_blank">
+              <span class="footer-menu-item-a">Terms</span>
+            </a>
+            <a class="footer-menu-item" href="/wtf/policies/privacy/" target="_blank">
+              <span class="footer-menu-item-a">Privacy</span>
             </a>
           </div>
-          <div class="col-md-8">
-            <div class="cat__footer__company">
-              <img class="cat__footer__company-logo" src="assets/images/logo.png" target="_blank" title="Mediatec Software">
-              <span>
-                © 2016 <a href="#" target="_blank">Framework New York</a>
-                <br>
-                All rights reserved
-            </span>
-            </div>
+          <div class="footer-tools css-1umsjwf">
+            <button class="top-tool footer-tool">
+              <svg class="chevron-icon css-16nlgdy SVGIcon" height="20" width="20">
+                <g>
+                  <polyline points="6,16 12,10 6,4"></polyline>
+                </g>
+            </svg>
+              <span class="css-edgmc0">Top</span>
+            </button>
+            <button class="layout-tool footer-tool layout-icon">
+              <svg class="list-icon SVGIcon" height="20" width="20">
+                <g>
+                  <path d="M6.2,8.8c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5h7.5c1.4,0,2.5,1.1,2.5,2.5s-1.1,2.5-2.5,2.5H6.2z"></path>
+                  <path d="M6.2,16.2c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5h7.5c1.4,0,2.5,1.1,2.5,2.5s-1.1,2.5-2.5,2.5H6.2z"></path>
+                </g>
+              </svg>
+              <span class="css-edgmc0">List View</span>
+            </button>
+            <button class="layout-tool footer-tool css-q1j2f1">
+              <svg class="grid-icon SVGIcon" width="20" height="20">
+                <g><circle cx="6.2" cy="6.2" r="2.5"></circle>
+                  <circle cx="13.8" cy="6.2" r="2.5"></circle>
+                  <circle cx="6.2" cy="13.8" r="2.5"></circle>
+                  <circle cx="13.8" cy="13.8" r="2.5"></circle></g></svg>
+              <span class="css-edgmc0">Grid View</span>
+            </button>
           </div>
         </div>
       </div>
-      <a href="javascript: void(0);" class="sig__core__scroll-top" onclick="$('body, html').animate({'scrollTop': 0}, 500);">
-        <svg class="lnr lnr-arrow-up"><use xlink:href="#lnr-arrow-up"></use></svg>
-      </a>
-    </div>
+    </footer>
   `,
+  styles: [`
+    footer {
+      position: fixed;
+      right: 0px;
+      bottom: -3.375rem;
+      left: 0px;
+      height: 4.3125rem;
+      z-index: 1030;
+      color: rgb(170, 170, 170);
+    }
+    
+    button {
+      position: relative;
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      color: inherit;
+      text-transform: none;
+      vertical-align: middle;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+    }
+
+    @media (min-width: 40em) {
+      .css-11h01c3, [data-css-11h01c3] {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+      }
+    }
+    
+    .footer-content {
+      padding-left: 0.625rem;
+      width: 100%;
+      background-color: rgb(229, 229, 229);
+      padding-right: 0.625rem;
+      transform: translate3d(0px, calc(-100% + 0.9375rem), 0px);
+      height: 5rem;
+      position: relative;
+      margin: 0px;
+      transition: -webkit-transform 150ms ease, transform 150ms ease;
+      
+    }
+    
+    .footer-container {
+      -webkit-box-align: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      max-width: 85rem;
+      width: 100%;
+      height: 5rem;
+      margin: 0px auto;
+    }
+    
+    .footer-menu {
+      position: relative;
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex: 1 1 0%;
+    }
+    
+    .footer-menu-item {
+      display: inline-block;
+      font-size: 1rem;
+      vertical-align: middle;
+      border-bottom: 0px;
+      /*font-size: 14px;*/
+      color: rgb(170, 170, 170);
+    }
+
+    .footer-tools {
+      -webkit-box-align: center;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      right: 0px;
+      top: 0px;
+      height: 100%;
+    }
+    .footer-tools::before {
+      position: absolute;
+      z-index: 2;
+      top: 0px;
+      bottom: 0px;
+      left: -1.25rem;
+      width: 1.25rem;
+      content: "";
+      background: linear-gradient(to right, rgba(229, 229, 229, 0) 0%, rgb(229, 229, 229) 90%);
+    }
+    .top-tool .footer-tool {
+      display: inline-block;
+      font-size: 0.75rem;
+    }
+
+    .footer-tools .chevron-icon {
+      margin-top: 5px;
+      transition: -webkit-transform .2s cubic-bezier(.23,1,.32,1);
+      transition: transform .2s cubic-bezier(.23,1,.32,1);
+      transition: transform .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+
+    .SVGIcon>g {
+      fill: transparent;
+      stroke: currentColor;
+      stroke-miterlimit: 10;
+      stroke-width: 1.25;
+      transition: fill .2s ease .1s,stroke .2s ease,-webkit-transform .2s ease;
+      transition: fill .2s ease .1s,stroke .2s ease,transform .2s ease;
+      transition: fill .2s ease .1s,stroke .2s ease,transform .2s ease,-webkit-transform .2s ease;
+      -webkit-transform-origin: center center;
+      transform-origin: center center;
+    }
+
+    .css-edgmc0 {
+      display: inline-block;
+      width: 0px;
+      margin-left: 0.3125rem;
+      white-space: nowrap;
+      vertical-align: middle;
+      overflow: hidden;
+      transition: width 0.2s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s;
+    }
+    .layout-icon.layout-tool {
+      margin-right: -0.5rem;
+      margin-left: 0.3125rem;
+    }
+    .layout-icon {
+      display: inline-block;
+      font-size: 0.75rem;
+    }
+    .footer-tool.layout-tool>.SVGIcon {
+      margin-top: 5px;
+    }
+    .footer-tool.layout-tool>.grid-icon {
+      margin-top: 7px;
+    }
+    @media (min-width: 40em) {
+      .footer-menu-item-a {
+        margin-right: 1.25rem;
+      }
+    }
+    .footer-menu-item-a {
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: middle;
+      margin-right: 0.9375rem;
+      overflow: hidden;
+      transition: width 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  
+
+
+  `],
 
 })
 export class FooterComponent implements OnInit {

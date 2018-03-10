@@ -1,0 +1,50 @@
+.hidden{
+	display:none!important;
+	visibility:hidden
+}
+.invisible{
+	position:absolute;
+	visibility:hidden;
+	opacity:0
+}
+.unselectable{
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.disabled{
+	pointer-events:none;
+	cursor:default
+}
+.monospace{
+	font-family:AtlasTypewriterRegular,AtlasTypewriter-Regular,Andale Mono,Consolas,Lucida Console,Menlo,Luxi Mono,monospace;
+	font-style:normal;
+	font-weight:400;
+	font-size:.75rem
+}
+.subheading{
+	font-family:AtlasGroteskBold,AtlasGrotesk-Bold,Helvetica Neue,HelveticaNeue,Helvetica,sans-serif;
+	font-style:normal;
+	font-weight:700;
+	font-size:1.5rem;
+	line-height:1.35;
+	color:#000;
+	text-rendering:optimizeLegibility
+}
+.fullscreen{
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0
+}
+.lowercase,.uppercase{
+	text-transform:uppercase
+}
+.truncate{
+	max-width:100%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap
+}

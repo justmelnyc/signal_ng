@@ -1,0 +1,41 @@
+.isNotificationsScrolling{
+	overflow:hidden
+}
+.NotificationsContainer{
+	position:absolute;
+	top:100%;
+	right:1.25rem;
+	z-index:3;
+	width:22.5rem;
+	padding-bottom:.625rem;
+	overflow:hidden;
+	background-color:#fff;
+	border:1px solid #aaa;
+	border-top:0
+}
+.NotificationsContainer>.Scrollable{
+	height:18.75rem;
+	-webkit-overflow-scrolling:touch;
+	overflow-y:auto
+}
+.NotificationsContainerTabs>.IconTab{
+	width:16.66667%
+}
+@media (min-width:85em){
+	.NotificationsContainer{
+		right:2.5rem
+}
+}
+@media (min-height:41.25em){
+	.NotificationsContainer>.Scrollable{
+		height:31.5625rem
+}
+}
+@media (min-height:47.5em){
+	.NotificationsContainer>.Scrollable{
+		height:37.8125rem
+}
+}
+.NotificationsContainer .StreamContainer{
+	padding:0
+}

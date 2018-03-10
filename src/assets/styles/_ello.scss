@@ -1,0 +1,132 @@
+.svg-fill{
+	fill:currentColor
+}
+.svg-fill,.svg-fill-transparent{
+	stroke:none;
+	transition:fill .2s ease
+}
+.svg-fill-transparent{
+	fill:transparent
+}
+.svg-stroke{
+	fill:none;
+	stroke:currentColor;
+	stroke-miterlimit:10;
+	stroke-width:1.25;
+	transition:stroke .2s ease,-webkit-transform .2s ease;
+	transition:stroke .2s ease,transform .2s ease;
+	transition:stroke .2s ease,transform .2s ease,-webkit-transform .2s ease;
+	-webkit-transform-origin:center center;
+	transform-origin:center center
+}
+.svg-stroke-bevel{
+	stroke-linejoin:bevel
+}
+.svg-stroke-round{
+	stroke-linejoin:round
+}
+.svg-fill-stroke{
+	fill:currentColor;
+	stroke:currentColor;
+	stroke-miterlimit:10;
+	stroke-width:1.25;
+	transition:fill .2s ease,stroke .2s ease
+}
+.SVGBoxBG,.SVGBoxFG{
+	stroke:none;
+	transition:fill .2s ease
+}
+.SVGBoxFG{
+	fill:#fff
+}
+.SVGBoxBG{
+	fill:currentColor
+}
+.SVGIcon>g{
+	fill:transparent;
+	stroke:currentColor;
+	stroke-miterlimit:10;
+	stroke-width:1.25;
+	transition:fill .2s ease .1s,stroke .2s ease,-webkit-transform .2s ease;
+	transition:fill .2s ease .1s,stroke .2s ease,transform .2s ease;
+	transition:fill .2s ease .1s,stroke .2s ease,transform .2s ease,-webkit-transform .2s ease;
+	-webkit-transform-origin:center center;
+	transform-origin:center center
+}
+.SVGIcon>g:nth-of-type(2){
+	transition-delay:.2s,.1s,.1s
+}
+.SVGIcon>g:nth-of-type(3){
+	transition-delay:.3s,.2s,.2s
+}
+.SVGIcon>g:nth-of-type(4){
+	transition-delay:.4s,.2s,.2s
+}
+.ElloDonutMark,.ElloMark,.ElloOutlineMark,.ElloRainbowMark{
+	display:inline-block;
+	overflow:hidden;
+	border-radius:2.5rem
+}
+.SmileShape{
+	fill:#fff
+}
+.ElloOutlineMark{
+	border:1px solid #aaa
+}
+.ElloOutlineMark>.SmileShape{
+	fill:transparent!important;
+	stroke:#aaa!important;
+	-webkit-transform:translateX(-2px);
+	transform:translateX(-2px)
+}
+.OnboardingAvatarPicker .ElloOutlineMark{
+	position:absolute;
+	top:5rem;
+	right:0;
+	left:0;
+	z-index:2;
+	margin:0 auto;
+	pointer-events:none;
+	-webkit-transform:scale(1.5);
+	transform:scale(1.5);
+	-webkit-transform-origin:50% 0;
+	transform-origin:50% 0
+}
+.ElloNinjaSuit{
+	position:absolute;
+	top:0;
+	left:0;
+	fill:#ed2224
+}
+.ElloMark.isSpinner{
+	-webkit-animation:animateIsBusy 1.03333s infinite cubic-bezier(.645,.045,.355,1);
+	animation:animateIsBusy 1.03333s infinite cubic-bezier(.645,.045,.355,1)
+}
+.ElloMark.isSpinner>.SVGBoxBG{
+	fill:transparent!important
+}
+.ElloMark.isSpinner>.SmileShape{
+	fill:#aaa!important
+}
+.BlockedUsers .ElloMark.isSpinner,.MutedUsers .ElloMark.isSpinner,.TabListStreamContainer .ElloMark.isSpinner{
+	-webkit-animation:animateIsBusyButton 1.03333s infinite cubic-bezier(.645,.045,.355,1);
+	animation:animateIsBusyButton 1.03333s infinite cubic-bezier(.645,.045,.355,1)
+}
+.BlockedUsers .ElloMark.isSpinner>.SmileShape,.MutedUsers .ElloMark.isSpinner>.SmileShape{
+	fill:#fff!important
+}
+.OnboardingNavbar>.ElloMark{
+	position:absolute;
+	top:.9375rem;
+	left:.625rem;
+	-webkit-transform-origin:0 0;
+	transform-origin:0 0
+}
+@media (min-width:40em){
+	.OnboardingNavbar>.ElloMark{
+		top:1.25rem;
+		left:1.25rem;
+		-webkit-transform:scale(1.5);
+		transform:scale(1.5)
+}
+}

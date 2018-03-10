@@ -1,0 +1,90 @@
+.Paginator{
+	position:absolute;
+	right:0;
+	bottom:0;
+	left:0;
+	height:0;
+	overflow:hidden;
+	font-size:.875rem;
+	color:#aaa;
+	text-align:center;
+	background-color:transparent;
+	transition:height .2s cubic-bezier(.23,1,.32,1),background-color .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1);
+	transition:transform .2s cubic-bezier(.23,1,.32,1),height .2s cubic-bezier(.23,1,.32,1),background-color .2s cubic-bezier(.23,1,.32,1);
+	transition:transform .2s cubic-bezier(.23,1,.32,1),height .2s cubic-bezier(.23,1,.32,1),background-color .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1);
+	-webkit-transform:translate3d(0,100%,0);
+	transform:translate3d(0,100%,0)
+}
+.Paginator.isCentered{
+	margin-right:auto!important;
+	margin-left:auto!important
+}
+.Paginator.isBusy.NotificationReload{
+	position:relative;
+	bottom:auto;
+	margin-top:.9375rem
+}
+.Paginator.isBusy{
+	height:2.5rem;
+	line-height:2.5rem;
+	background:linear-gradient(225deg,red,#d200ff,#0063ff,#00ffc1,#0bff66,#16ff00,#f0ff00,red);
+	background-size:1600% 1600%;
+	-webkit-transform:translateZ(0);
+	transform:translateZ(0);
+	-webkit-animation:paginatorLoading 10s ease infinite;
+	animation:paginatorLoading 10s ease infinite
+}
+.Notifications .Paginator.isBusy,.NotificationsContainer .Paginator.isBusy{
+	height:.625rem
+}
+.Notifications .Paginator span,.NotificationsContainer .Paginator span{
+	display:none
+}
+.PaginatorMessage{
+	margin-left:.625rem
+}
+.ArtistInvites .Paginator,.ArtistInvitesDetail .Paginator,.BlockedUsers .Paginator,.Discover .Paginator,.Editorial .Paginator,.Following .Paginator,.MutedUsers .Paginator,.Search .Paginator,.TabListStreamContainer .Paginator,.UserDetails .Paginator{
+	position:static;
+	width:calc(100% - 1.25rem);
+	max-width:26.25rem;
+	height:2.5rem;
+	margin-top:1.875rem;
+	margin-bottom:3.125rem;
+	line-height:2.5rem;
+	color:#fff;
+	vertical-align:middle;
+	background-color:#aaa;
+	border-radius:.3125rem;
+	-webkit-transform:none;
+	transform:none
+}
+.ArtistInvites .Paginator,.ArtistInvitesDetail .Paginaton,.Discover .Paginator,.Editorial .Paginator,.Following .Paginator{
+	margin-top:0
+}
+.inEditorial .Paginator{
+	display:none;
+	margin-bottom:0
+}
+.no-touch .ArtistInvites .Paginator:hover,.no-touch .ArtistInvitesDetail .Paginator:hover,.no-touch .BlockedUsers .Paginator:hover,.no-touch .Discover .Paginator:hover,.no-touch .Editorial .Paginator:hover,.no-touch .Following .Paginator:hover,.no-touch .MutedUsers .Paginator:hover,.no-touch .Search .Paginator:hover,.no-touch .TabListStreamContainer .Paginator:hover,.no-touch .UserDetails .Paginator:hover{
+	background-color:#000
+}
+.BlockedUsers .Paginator,.MutedUsers .Paginator{
+	margin-bottom:1.875rem
+}
+.TabListStreamContainer .Paginator{
+	max-width:36.25rem
+}
+.ArtistInvites .Paginator button,.ArtistInvitesDetail .Paginator button,.Discover .Paginator button,.Editorial .Paginator button,.Following .Paginator button,.Search .Paginator button,.UserDetails .Paginator button{
+	width:100%
+}
+.TabListStreamContainer .Paginator button{
+	width:calc(100% - 2.5rem)
+}
+.Paginator.isBusy .PaginatorButton span{
+	display:none
+}
+@media (min-width:40em){
+	.BlockedUsers .Paginator,.MutedUsers .Paginator{
+		margin-top:3.75rem
+}
+}

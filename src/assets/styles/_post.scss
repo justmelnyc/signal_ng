@@ -1,0 +1,194 @@
+.Posts.asGrid{
+	margin-left:-1.25rem
+}
+.Post{
+	position:relative;
+	margin-bottom:1.25rem
+}
+.Post.isPostHeaderHidden{
+	padding-top:.9375rem
+}
+
+
+.PostHeaderLink{
+	max-width:100%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	vertical-align:middle
+}
+.PostHeaderAuthor{
+	padding-left:2.5rem;
+	line-height:3.75rem
+}
+.PostDetail .PostHeader>.PostHeaderAuthor{
+	line-height:2.8125rem
+}
+.ArtistInviteSubmissionHeaderAuthor,.CategoryHeaderAuthor,.RepostHeaderAuthor{
+	padding-left:2.5rem;
+	line-height:2.8125rem
+}
+.ArtistInviteSubmissionHeaderInvite,.CategoryHeaderCategory,.PostDetailHeaderUsername,.RepostHeaderReposter{
+	max-width:calc(100% - 7.5rem);
+	margin-top:-.75rem;
+	margin-left:2.5rem;
+	line-height:.9375rem
+}
+.PostDetail .isOwnPost .PostDetailHeaderUsername,.PostDetail .isOwnPost .RepostHeaderReposter{
+	max-width:calc(100% - 10rem)
+}
+.ArtistInviteSubmissionHeaderInviteName,.CategoryHeaderCategoryName{
+	text-decoration:underline
+}
+.PostHeaderAuthorName{
+	display:inline-block;
+	margin-right:.9375rem;
+	color:#000;
+	vertical-align:middle
+}
+.no-touch .PostHeaderLink:hover{
+	color:#535353
+}
+.no-touch .PostHeaderLink:hover .PostHeaderAuthorName{
+	color:currentColor
+}
+.PostHeaderTools{
+	position:absolute;
+	top:1.25rem;
+	right:0
+}
+.PostDetailAsideTop .PostHeaderTools{
+	right:1.25rem
+}
+.PostHeaderTools>a,.PostHeaderTools>span{
+	float:right
+}
+.PostHeaderTools .PostTool>button{
+	padding-right:.3125rem;
+	padding-left:.3125rem
+}
+.PostHeaderTools .PostTool .SVGIcon{
+	-webkit-transform:scale(1.5);
+	transform:scale(1.5)
+}
+.PostHeaderTools .SVGIcon>g{
+	stroke-width:.9375
+}
+.PostHeaderTools .SVGIcon line{
+	stroke-width:1
+}
+.PostHeaderTimeAgoLink{
+	padding-left:.3125rem
+}
+.no-touch .PostHeaderTimeAgoLink:hover{
+	color:#535353
+}
+.RepostHeader.inUserDetail>.RepostHeaderReposter{
+	position:absolute;
+	top:2rem;
+	left:-2.5rem;
+	z-index:2
+}
+.RepostHeader.inUserDetail>.RepostHeaderReposter .DraggableUsername{
+	display:none
+}
+.RepostHeader.inUserDetail>.ArtistInviteSubmissionHeaderAuthor,.RepostHeader.inUserDetail>.CategoryHeaderAuthor,.RepostHeader.inUserDetail>.RepostHeaderAuthor{
+	padding-left:4.0625rem;
+	line-height:3.75rem
+}
+@media (min-width:40em){
+	.ArtistInviteSubmissionHeader,.CategoryHeader,.PostHeader,.RepostHeader{
+		height:5rem
+}
+	.PostHeaderAuthor{
+		padding-left:3.75rem;
+		line-height:5rem
+}
+	.PostDetail .PostHeader>.PostHeaderAuthor{
+		line-height:3.75rem
+}
+	.ArtistInviteSubmissionHeaderAuthor,.CategoryHeaderAuthor,.RepostHeaderAuthor{
+		padding-left:3.75rem;
+		line-height:3.75rem
+}
+	.ArtistInviteSubmissionHeaderInvite,.CategoryHeaderCategory,.PostDetailHeaderUsername,.RepostHeaderReposter{
+		margin-top:-1.25rem;
+		margin-left:3.75rem;
+		line-height:1.25rem
+}
+	.PostHeaderTools{
+		top:1.875rem
+}
+	.RepostHeader.inUserDetail>.ArtistInviteSubmissionHeaderAuthor,.RepostHeader.inUserDetail>.CategoryHeaderAuthor,.RepostHeader.inUserDetail>.RepostHeaderAuthor{
+		padding-left:4.6875rem;
+		line-height:5rem
+}
+	.RepostHeader.inUserDetail>.RepostHeaderReposter{
+		top:3.25rem;
+		left:-3.75rem
+}
+}
+@media (min-width:60em){
+	.Posts.asList .PostHeaderTimeAgoLink{
+		display:none
+}
+}
+.Following.MainView .PostHeader .RelationshipContainer,.UserDetail.MainView .PostHeader .RelationshipContainer[data-priority=friend],.UserDetail.MainView .PostHeader .RelationshipContainer[data-priority=noise],.UserDetail.MainView .PostHeader .RelationshipContainer[data-priority=self]{
+	display:none
+}
+@media (max-width:39.9375em){
+	.Posts.asGrid .ArtistInviteSubmissionHeader .RelationshipContainer,.Posts.asGrid .CategoryHeader .RelationshipContainer,.Posts.asGrid .PostHeader .RelationshipContainer,.Posts.asGrid .PostHeaderTimeAgoLink,.Posts.asGrid .RepostHeader .RelationshipContainer{
+		display:none
+}
+	.Posts.asGrid .ArtistInviteSubmissionHeaderAuthor,.Posts.asGrid .ArtistInviteSubmissionHeaderInvite,.Posts.asGrid .CategoryHeaderAuthor,.Posts.asGrid .CategoryHeaderCategory,.Posts.asGrid .PostHeaderAuthor,.Posts.asGrid .RepostHeaderAuthor,.Posts.asGrid .RepostHeaderReposter{
+		max-width:100%
+}
+}
+.PostTools{
+	height:3.75rem;
+	padding-top:1.25rem;
+	font-size:.875rem;
+	white-space:nowrap
+}
+.PostTool,.PostTools{
+	position:relative;
+	transition:-webkit-transform .2s cubic-bezier(.23,1,.32,1);
+	transition:transform .2s cubic-bezier(.23,1,.32,1);
+	transition:transform .2s cubic-bezier(.23,1,.32,1),-webkit-transform .2s cubic-bezier(.23,1,.32,1)
+}
+.PostTool{
+	display:inline-block;
+	height:1.25rem;
+	line-height:1.25rem
+}
+.PostTool>a,.PostTool>button{
+	padding-right:.5rem;
+	padding-left:.5rem;
+	color:#aaa;
+	transition:color .2s ease
+}
+.PostTool:not([data-count="0"])>button.hasPostToolDrawer{
+	padding-right:.3125rem!important
+}
+.PostTool>button.PostToolDrawerButton{
+	padding-left:0!important
+}
+.PostDetailStreamContainer .CommentTool,.PostDetailStreamContainer .PostToolDrawerButton,.PostTool[data-count="0"]>button.PostToolDrawerButton{
+	display:none
+}
+.PostTool>a{
+	vertical-align:middle
+}
+
+@media (min-width:85em){
+	.Posts.asGrid{
+		margin-left:-2.5rem
+}
+	.Post{
+		margin-bottom:2.5rem
+}
+	.Column{
+		width:calc(25% - 2.5rem);
+		margin-left:2.5rem
+}
+}
