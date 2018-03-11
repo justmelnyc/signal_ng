@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^5.2.8",
     "@angular/common": "latest",
     "@angular/compiler": "^6.0.0-beta.7",
     "@angular/core": "^5.2.8",
@@ -27,6 +28,7 @@
     "core-js": "latest",
     "firebase": "^4.10.1",
     "font-awesome": "^4.7.0",
+    "ngx-cool-dialogs": "^0.1.1",
     "rxjs": "latest",
     "zone.js": "latest"
   },

@@ -7,6 +7,7 @@ import { VerticalNavigatorComponent } from './components/vertical-navigator'
 import { FooterComponent } from './components/footer'
 import {SubnavComponent} from './components/navigator-subnav';
 import { CapitalizePipe } from './pipes/capitalize.pipe'
+import { ReactiveFormsModule } from '@angular/forms'
 // import {MatchHeightDirective} from './directives/match-height.directive'
 
 const DECLARATIONS = [NavigatorComponent, FooterComponent, VerticalTimelineComponent, VerticalNavigatorComponent, SubnavComponent, CapitalizePipe]
@@ -14,7 +15,8 @@ const DECLARATIONS = [NavigatorComponent, FooterComponent, VerticalTimelineCompo
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   declarations: DECLARATIONS,
   exports: [ DECLARATIONS ]

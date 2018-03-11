@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AccountsComponent} from './accounts/accounts.component'
 import {AccountComponent} from './account/account.component'
-import {AccountCreateComponent} from './account-create/account-create.component'
+import {AccountCreateComponent} from './account-create/account-create'
 
 const routes: Routes = [
     { path: 'accounts', component: AccountsComponent, data: { title: 'accounts'} },
