@@ -4,7 +4,45 @@ declare var jQuery: any;
 
 @Component({
   selector: 'cat-page',
-  templateUrl: './login-alpha.html'
+  templateUrl: './login-alpha.html',
+  styles: [`
+    .overlay {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      top: 0px;
+      z-index: 0;
+      overflow: hidden;
+      background: 50% 50% / cover no-repeat rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s ease, opacity 0.4s ease;
+    }
+
+    .overlay.hasOverlay4::before {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .overlay::before {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      z-index: 1;
+      background-color: transparent;
+      content: "";
+      transition: background-color 0.2s ease;
+    }
+
+    .image-background {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background: 50% 50% / cover no-repeat transparent;
+      transition: opacity 0.4s ease;
+    }
+  `]
 })
 
 export class PagesLoginAlpha implements OnInit {

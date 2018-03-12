@@ -8,6 +8,24 @@ declare const jQuery: any;
     .cat__menu-left__item-link {
       line-height: 22px;
     }
+    .cat__menu-left__item > a > .badge {
+      margin-top: 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: .7em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25rem;
+    }
+    .badge.badge-primary {
+      background: #F09C7B;
+      color: #ffffff;
+    }
   `]
 })
 export class VerticalNavigatorComponent implements OnInit {
