@@ -251,7 +251,7 @@
 
         /*-- Basic Elements --*/
 
-        // Define svgs
+        // Define svg
         $$.svg = $$.selectChart.append("svg")
             .style("overflow", "hidden")
             .on('mouseenter', function () { return config.onmouseover.call($$); })

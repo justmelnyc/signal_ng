@@ -24,6 +24,7 @@ import { CoreModule } from './core/core.module'
 import { environment } from '../environments/environment'
 import {AccountModule} from './account/account.module'
 import { SharedModule } from './shared/shared.module'
+import {AuthGuard} from './core/guards/auth.guard'
 
 declare const NProgress: any;
 
@@ -50,7 +51,7 @@ declare const NProgress: any;
         AccountModule,
         SharedModule
     ],
-    providers: [],
+  providers: [AuthGuard],
     bootstrap: [ AppComponent ]
 })
 

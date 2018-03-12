@@ -17,18 +17,18 @@ export class AccountsComponent implements OnInit {
   }
 
   getAccessKey() {
-    this.coolDialogs.prompt('Please type your email below.',  {
-      theme: 'material',
-      okButtonText: 'Yes, I do',
-      cancelButtonText: 'Nope',
-      color: 'red',
-      title: 'Wait, think twice'
-    })
-      .subscribe(res => {
-        if (res.result) {
-          console.log('Thanks, now we have your email:', res.value);
-        }
-      });
+    // this.coolDialogs.prompt('Please type your email below.',  {
+    //   theme: 'material',
+    //   okButtonText: 'Yes, I do',
+    //   cancelButtonText: 'Nope',
+    //   color: 'red',
+    //   title: 'Wait, think twice'
+    // })
+    //   .subscribe(res => {
+    //     if (res.result) {
+    //       console.log('Thanks, now we have your email:', res.value);
+    //     }
+    //   });
   }
 
 

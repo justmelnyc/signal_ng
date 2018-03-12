@@ -65,10 +65,11 @@
 
 .cat__menu-left__logo {
     width: 17.85rem;
-    height: 4.64rem;
+    /*height: 0;*/
     display: inline-block;
     background: #000;
-    padding: 1rem 1.28rem;
+  padding: 1rem 1.28rem;
+  margin-top: -0.42rem;
 }
 
 .cat__menu-left__logo a {
@@ -76,8 +77,8 @@
 }
 
 .cat__menu-left__logo img {
-    max-height: 2.5rem;
-    max-width: 90%;
+    max-height: 1rem;
+    /*max-width: 90%;*/
     vertical-align: bottom;
 }
 
@@ -96,7 +97,11 @@
 
 .cat__menu-left__submenu > .cat__menu-left__list {
     display: none;
-    background: #242424;
+    background: #9A9FA0;
+
+}
+.cat__menu-left__item .cat__menu-left__item-link {
+  color: #FFFFFF;
 }
 
 .cat__menu-left__submenu.cat__menu-left__item > a:after {
@@ -149,7 +154,7 @@
     min-height: 3.21rem;
     padding: 0.85rem 3.57rem 0.85rem 1.42rem;
     display: block;
-    color: #b8beca;
+    /*color: #b8beca;*/
     text-transform: uppercase;
     letter-spacing: .1rem;
     font-size: .8rem;
@@ -163,6 +168,15 @@
   color: #000;
   background-color: #ffffff;
 }
+
+.cat__menu-left__item--active .cat__menu-left__item-link {
+  color: #000;
+}
+
+.cat__menu-left__item--active a {
+  color: #ffffff;
+}
+
 .cat__menu-left__item--active > a svg.lnr, .cat__menu-left__item:hover > a svg.lnr {
   color: #000;
 }
@@ -258,6 +272,10 @@
 
 .cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--colorful--yellow:hover:before, .cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--colorful--yellow.cat__menu-left__submenu--toggled:before, .cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--colorful--yellow.cat__menu-left__item--active:before {
     background-color: yellow;
+}
+
+.cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--colorful--yellow:hover:before, .cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--colorful--yellow.cat__menu-left__submenu--toggled:before, .cat__menu-left__list--root > .cat__menu-left__item.cat__menu-left--signal--orange.cat__menu-left__item--active:before {
+  background-color: pink;
 }
 
 @media (max-width: 767px) {

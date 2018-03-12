@@ -18,7 +18,7 @@ body {
 
 .cat__top-bar__logo {
     width: 14.28rem;
-    height: 4.64rem;
+    /*height: 4.64rem;*/
     display: inline-block;
     padding: 1rem 1.28rem;
     margin-right: 1.42rem;

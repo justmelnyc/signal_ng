@@ -10,8 +10,17 @@ footer {
   z-index: 1030;
   color: rgb(170, 170, 170);
 }
-.text-green {
+
+.sig-green {
   color: $sig-green;
+}
+
+.sig-yellow {
+  color: $sig-yellow;
+}
+
+.sig-orange {
+  color: $sig-orange;
 }
 /*button {*/
   /*position: relative;*/

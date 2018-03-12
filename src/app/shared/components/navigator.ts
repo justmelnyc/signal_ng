@@ -1,70 +1,82 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/services/auth.service'
 
 @Component({
   selector: 'navigator',
   template: `
     <div class="cat__top-bar">
       <!-- left aligned items -->
+      
+      
       <div class="cat__top-bar__left">
         <div class="cat__top-bar__logo">
           <a routerLink="/">
             <img src="assets/images/logo.png" />
           </a>
         </div>
+        
+        
         <div class="cat__top-bar__item hidden-lg-down">
           <div class="cat__top-bar__search">
+            
+            <!--<a class="" href="javascript:void(0)"> -->
+              <!--<svg-icon name="dashboard"></svg-icon> Dashboard-->
+            <!--</a>-->
+
             <!--<i class="icmn-search">&lt;!&ndash; &ndash;&gt;</i>-->
             <svg class="lnr lnr-magnifier icmn-search"><use xlink:href="#lnr-magnifier"></use></svg>
             <input type="text" placeholder="Type to search..." />
           </div>
         </div>
       </div>
+      
+      
       <!-- right aligned items -->
       <div class="cat__top-bar__right">
-     
-        <div class="cat__top-bar__item hidden-xxl-down hidden-sm-down">
-          <div class="cat__top-bar__mini-chart">
-            Server Load:
-            <div class="cat__top-bar__mini-chart__inner">
-              <i style="height: 30%;"></i>
-              <i style="height: 78%;"></i>
-              <i style="height: 10%;"></i>
-              <i style="height: 46%;"></i>
-              <i style="height: 26%;"></i>
-              <i style="height: 29%;"></i>
-              <i style="height: 50%;"></i>
-              <i style="height: 89%;"></i>
-              <i style="height: 30%;"></i>
-            </div>
-            20%
-          </div>
-        </div>
         
-        <div class="cat__top-bar__item">
-          <div class="dropdown cat__top-bar__avatar-dropdown">
-            <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="cat__top-bar__avatar">
-                        <img src="assets/images/profile.png" />
-                    </span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="" role="menu">
-              <a class="dropdown-item" href="javascript:void(0)">
-                <!--<i class="dropdown-icon icmn-user"></i> -->
-                <svg class="lnr lnr-user"><use xlink:href="#lnr-user"></use></svg>
-                Profile
-              </a>
-              <div class="dropdown-divider"></div>
-              <div class="dropdown-header">Home</div>
-              <a class="dropdown-item" href="javascript:void(0)"><svg class="lnr lnr-screen"><use xlink:href="#lnr-screen"></use></svg> Player</a>
-              <a class="dropdown-item" routerLink="/accounts"><svg class="lnr lnr-camera-video"><use xlink:href="#lnr-camera-video"></use></svg> Spots (Videos)</a>
-              <a class="dropdown-item" routerLink="/accounts"><svg class="lnr lnr-laptop-phone"><use xlink:href="#lnr-laptop-phone"></use></svg> Spots (Apps)</a>
+        <ng-container *ngIf="auth.user | async; then authenticated else guest">
+          
+        </ng-container>
 
-              <a class="dropdown-item" href="javascript:void(0)"><svg class="lnr lnr-calendar-full"><use xlink:href="#lnr-calendar-full"></use></svg> Schedule (35 New)</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="javascript:void(0)"><svg class="lnr lnr-power-switch"><use xlink:href="#lnr-power-switch"></use></svg> Logout</a>
-            </ul>
+
+        <ng-template #guest>
+          <button class="NavbarLink LabelOnly isSignUp sig-button" routerLink="/accounts-login">Login</button>
+        </ng-template>
+
+        <!-- User logged in -->
+        <ng-template #authenticated>
+
+          <div *ngIf="auth.user | async as user" class="cat__top-bar__item">
+            <div class="dropdown cat__top-bar__avatar-dropdown">
+              <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="cat__top-bar__avatar avatar">
+                        <img [src]="user.photoURL || 'assets/images/profile.png'"/>
+                    </span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="" role="menu">
+                <a class="dropdown-item" routerLink="/accounts/username">
+                  <!--<i class="dropdown-icon icmn-user"></i> -->
+                  <svg class="lnr lnr-user"><use xlink:href="#lnr-user"></use></svg>@{{ user.username }}</a>
+
+                <!--<p class="dropdown-item text-truncate">uid: {{ user.username }}</p>-->
+                <!--<p class="dropdown-item" >name: {{ user.displayName }}</p>-->
+                <p class="dropdown-item" (click)="linkGoogle()"><svg class="lnr lnr-link"><use xlink:href="#lnr-link"></use></svg> Link Google</p>
+                <p class="dropdown-item" (click)="linkFacebook()"><svg class="lnr lnr-link"><use xlink:href="#lnr-link"></use></svg> Link Facebook</p>
+
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/accounts"><svg class="lnr lnr-screen"><use xlink:href="#lnr-screen"></use></svg> Player</a>
+                <a class="dropdown-item" routerLink="/accounts"><svg class="lnr lnr-camera-video"><use xlink:href="#lnr-camera-video"></use></svg> Spots (Videos)</a>
+                <a class="dropdown-item" routerLink="/accounts"><svg class="lnr lnr-laptop-phone"><use xlink:href="#lnr-laptop-phone"></use></svg> Spots (Apps)</a>
+
+                <a class="dropdown-item" href="javascript:void(0)"><svg class="lnr lnr-calendar-full"><use xlink:href="#lnr-calendar-full"></use></svg> Schedule (35 New)</a>
+                <div class="dropdown-divider"></div>
+                <p class="dropdown-item" (click)="signOut()"><svg class="lnr lnr-power-switch"><use xlink:href="#lnr-power-switch"></use></svg> Logout</p>
+              </ul>
+            </div>
           </div>
-        </div>
+        </ng-template>
+        
         <div class="cat__top-bar__item">
           <div class="cat__top-bar__menu-button cat__menu-right__action--menu-toggle">
             <!--<svg class="lnr lnr-menu"><use xlink:href="#lnr-menu"></use></svg>-->
@@ -84,6 +96,12 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
   styles: [`
+    .dropdown-item {
+       cursor: pointer
+     }
+    .dropdown-item:hover {
+      color: #63D783;
+    }
     button {
       position: relative;
       display: inline-block;
@@ -137,14 +155,38 @@ import { Component, OnInit } from '@angular/core';
       /*margin-top: 5px;*/
     }
     
-  `]
+    .avatar {
+      /*border: 3px solid #63D783;*/
+    }
 
+    .avatar.out {
+      border: 3px solid #E0353C;
+    }
+    
+    .text-truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  `]
 })
 export class NavigatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  signOut() {
+    this.auth.signOut();
+  }
+
+  linkGoogle() {
+    this.auth.linkGoogle();
+  }
+
+  linkFacebook() {
+    this.auth.linkFacebook();
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core'
+import {BlinkerService} from './core/services/blinker.service'
 
 @Component({
     selector: 'app-root',
@@ -12,7 +13,12 @@ import { Component } from '@angular/core';
             <router-outlet></router-outlet>
         </div>
          <sig-footer></sig-footer>
-
     `,
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private blink: BlinkerService) {}
+  ngOnInit() {
+    this.blink.blink('signaling..');
+  }
+
+}

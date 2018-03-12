@@ -8,9 +8,10 @@ import { FooterComponent } from './components/footer'
 import {SubnavComponent} from './components/navigator-subnav';
 import { CapitalizePipe } from './pipes/capitalize.pipe'
 import { ReactiveFormsModule } from '@angular/forms'
+import {SvgIconComponent} from './components/svg-icon'
 // import {MatchHeightDirective} from './directives/match-height.directive'
 
-const DECLARATIONS = [NavigatorComponent, FooterComponent, VerticalTimelineComponent, VerticalNavigatorComponent, SubnavComponent, CapitalizePipe]
+const DECLARATIONS = [NavigatorComponent, FooterComponent, VerticalTimelineComponent, VerticalNavigatorComponent, SubnavComponent, CapitalizePipe, SvgIconComponent]
 
 @NgModule({
   imports: [

@@ -94,6 +94,7 @@ import { Component, OnInit } from '@angular/core';
         padding-right: 1.25rem;
         padding-left: 1.25rem;
       }
+      
     }
     
     .footer-content {
