@@ -23,6 +23,7 @@
       },
       "prefix": "",
       "styles": [
+        "../node_modules/videogular2/fonts/videogular.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "assets/preloader.css",
         "assets/vendors/by_hands/bootstrap/css/bootstrap.min.css",

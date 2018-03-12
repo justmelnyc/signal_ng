@@ -1,13 +1,19 @@
-import { Routes, RouterModule } from '@angular/router';
-import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'
+import { ModuleWithProviders } from '@angular/core'
 import { AdminComponent } from './admin/admin.component'
-import {AuthGuard} from './core/guards/auth.guard'
+import { AuthGuard } from './core/guards/auth.guard'
+import { PlayerComponent } from './player/components/player.component'
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'accounts', pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
-      data: {animation: 'home'} },
-  { path: '**', redirectTo: 'pages/page-404' }
-];
+	{ path: '', redirectTo: 'accounts', pathMatch: 'full' },
+	{ path: 'player', component: PlayerComponent },
+	{
+		path: 'admin',
+		component: AdminComponent,
+		canActivate: [AuthGuard],
+		data: { animation: 'home' },
+	},
+	{ path: '**', redirectTo: 'pages/page-404' },
+]
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes)

@@ -30,12 +30,14 @@
     "font-awesome": "^4.7.0",
     "ngx-cool-dialogs": "^0.1.1",
     "rxjs": "latest",
+    "videogular2": "^6.0.6",
     "zone.js": "latest"
   },
   "devDependencies": {
     "@angular-devkit/core": "^0.3.2",
     "@angular/cli": "^1.7.3",
     "@angular/compiler-cli": "6.0.0-beta.7",
+    "@types/core-js": "^0.9.46",
     "@types/jasmine": "latest",
     "@types/node": "latest",
     "codelyzer": "latest",

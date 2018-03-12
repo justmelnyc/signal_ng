@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core'
-import {BlinkerService} from './core/services/blinker.service'
+import { Component, OnInit } from '@angular/core';
+
+import { BlinkerService } from './core/services/blinker.service';
 
 @Component({
-    selector: 'app-root',
-    template: `
+	selector: 'app-root',
+	template: `
         <!--<cat-menu-right></cat-menu-right>-->
         <vertical-timeline></vertical-timeline>
         <vertical-navigator></vertical-navigator>
-            <!--<cat-menu-left></cat-menu-left>-->
             <navigator></navigator>
             <div class="cat__content">
             <router-outlet></router-outlet>
@@ -16,9 +16,8 @@ import {BlinkerService} from './core/services/blinker.service'
     `,
 })
 export class AppComponent implements OnInit {
-  constructor(private blink: BlinkerService) {}
-  ngOnInit() {
-    this.blink.blink('signaling..');
-  }
-
+	constructor(private blink: BlinkerService) {}
+	ngOnInit() {
+		this.blink.blink('signaling..');
+	}
 }

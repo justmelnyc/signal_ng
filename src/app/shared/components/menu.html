@@ -39,7 +39,15 @@
             </a>
           </li>
           <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
-                <a class="cat__menu-left__item-link" [routerLink]="['documentation/index']">
+            <a class="cat__menu-left__item-link" [routerLink]="['player']">
+              <svg class="lnr lnr-layers cat__menu-left__icon">
+                <use xlink:href="#lnr-screen"></use>
+              </svg>
+              player
+            </a>
+          </li>
+          <li class="cat__menu-left__item" [routerLinkActive]="['cat__menu-left__item--active']">
+                <a class="cat__menu-left__item-link" [routerLink]="['admin']">
                   <svg class="lnr lnr-layers cat__menu-left__icon">
                     <use xlink:href="#lnr-layers"></use>
                   </svg>

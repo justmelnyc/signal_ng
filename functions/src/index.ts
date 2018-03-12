@@ -1,4 +1,4 @@
-let functions = require('firebase-functions');
+const functions = require('firebase-functions');
 import * as firebase from 'firebase';
 
 const admin = require('firebase-admin');
