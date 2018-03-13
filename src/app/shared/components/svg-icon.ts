@@ -1,5 +1,4 @@
 import { Component, Input, ChangeDetectionStrategy, ElementRef, Renderer } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import {HttpClient} from '@angular/common/http'
 
 export interface Icon {

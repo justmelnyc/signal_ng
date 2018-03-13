@@ -129,16 +129,17 @@ export class VerticalNavigatorComponent implements OnInit {
   function removeColorfulClasses() {
     $('.cat__menu-left__list--root > .cat__menu-left__item').removeClass(colorfulClasses);
   }
+  const body = $('body');
 
-  if ($('body').hasClass('cat__menu-left--colorful')) {
+  if (body.hasClass('cat__menu-left--colorful')) {
     setColorfulClasses();
   }
 
-  $('body').on('setColorfulClasses', function() {
+  body.on('setColorfulClasses', function() {
     setColorfulClasses();
   });
 
-  $('body').on('removeColorfulClasses', function() {
+  body.on('removeColorfulClasses', function() {
     removeColorfulClasses();
   });
 

@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
              src="assets/media/nike.mp4"
              autoplay
              controls
+             loop
              type="video/mp4">
       </video>
       

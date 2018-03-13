@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { ModuleWithProviders } from '@angular/core'
 import { AdminComponent } from './admin/admin.component'
 import { AuthGuard } from './core/guards/auth.guard'
-import { PlayerComponent } from './player/components/player.component'
+import { PlayerComponent } from './player/components/player'
 
 export const routes: Routes = [
 	{ path: '', redirectTo: 'accounts', pathMatch: 'full' },

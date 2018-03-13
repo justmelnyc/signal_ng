@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'sig-footer',
   template: `
-    <footer class="Footer css-mhko7m" role="contentinfo">
-      <div class="grabber css-rpdx7d"></div>
+    <footer role="contentinfo">
+      <div class="grabber "></div>
       <div class="footer-content css-11h01c3">
-        <div class="footer-container css-1j4orw">
+        <div class="footer-container ">
           <div class="footer-menu">
             <a class="footer-menu-item" href="/wtf/artists/" target="_blank">
               <span class="footer-menu-item-a">About</span>
@@ -30,14 +30,14 @@ import { Component, OnInit } from '@angular/core';
               <span class="footer-menu-item-a">Privacy</span>
             </a>
           </div>
-          <div class="footer-tools css-1umsjwf">
+          <div class="footer-tools">
             <button class="top-tool footer-tool">
               <svg class="chevron-icon css-16nlgdy SVGIcon" height="20" width="20">
                 <g>
                   <polyline points="6,16 12,10 6,4"></polyline>
                 </g>
             </svg>
-              <span class="css-edgmc0">Top</span>
+              <span class="hide-label">Top</span>
             </button>
             <button class="layout-tool footer-tool layout-icon">
               <svg class="list-icon SVGIcon" height="20" width="20">
@@ -46,15 +46,15 @@ import { Component, OnInit } from '@angular/core';
                   <path d="M6.2,16.2c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5h7.5c1.4,0,2.5,1.1,2.5,2.5s-1.1,2.5-2.5,2.5H6.2z"></path>
                 </g>
               </svg>
-              <span class="css-edgmc0">List View</span>
+              <span class="hide-label">List View</span>
             </button>
-            <button class="layout-tool footer-tool css-q1j2f1">
+            <button class="layout-tool footer-tool">
               <svg class="grid-icon SVGIcon" width="20" height="20">
                 <g><circle cx="6.2" cy="6.2" r="2.5"></circle>
                   <circle cx="13.8" cy="6.2" r="2.5"></circle>
                   <circle cx="6.2" cy="13.8" r="2.5"></circle>
                   <circle cx="13.8" cy="13.8" r="2.5"></circle></g></svg>
-              <span class="css-edgmc0">Grid View</span>
+              <span class="hide-label">Grid View</span>
             </button>
             <button class="IconTab TabButton" type="button"><svg class="RelationshipIcon SVGIcon" width="20" height="20"><g><circle cx="7.5" cy="4.8" r="1.8"></circle><path d="M7.5 8.6c-1.9 0-3.5 1.6-3.5 3.5v2.9h7v-2.9M12.7 6.1v5M15.2 8.6h-5"></path></g></svg></button>
           </div>
@@ -72,6 +72,9 @@ import { Component, OnInit } from '@angular/core';
       z-index: 1030;
       /*color: rgb(170, 170, 170);*/
       color: #000000;
+    }
+    .grabber {
+      
     }
     
     button {
@@ -94,7 +97,6 @@ import { Component, OnInit } from '@angular/core';
         padding-right: 1.25rem;
         padding-left: 1.25rem;
       }
-      
     }
     
     .footer-content {
@@ -104,13 +106,11 @@ import { Component, OnInit } from '@angular/core';
       background-color: #FFFFFF;
       padding-right: 0.625rem;
       transform: translate3d(0px, calc(-100% + 0.9375rem), 0px);
-      height: 5rem;
+      height: 4rem;
       position: relative;
       margin: 0px;
       transition: -webkit-transform 150ms ease, transform 150ms ease;
       border-top: 1px solid #e4e9f0;
-
-
     }
     
     .footer-container {
@@ -120,7 +120,7 @@ import { Component, OnInit } from '@angular/core';
       align-items: center;
       max-width: 85rem;
       width: 100%;
-      height: 5rem;
+      height: 4rem;
       margin: 0px auto;
     }
     
@@ -151,6 +151,11 @@ import { Component, OnInit } from '@angular/core';
       top: 0px;
       height: 100%;
     }
+    
+    .footer-tool {
+      
+    }
+    
     /*.footer-tools::before {*/
       /*position: absolute;*/
       /*z-index: 2;*/
@@ -161,6 +166,10 @@ import { Component, OnInit } from '@angular/core';
       /*content: "";*/
       /*background: linear-gradient(to right, rgba(229, 229, 229, 0) 0%, rgb(229, 229, 229) 90%);*/
     /*}*/
+
+    top-tool {
+      
+    }
     .top-tool .footer-tool {
       display: inline-block;
       font-size: 0.75rem;
@@ -187,7 +196,7 @@ import { Component, OnInit } from '@angular/core';
       transform-origin: center center;
     }
 
-    .css-edgmc0 {
+    .hide-label {
       display: inline-block;
       width: 0px;
       margin-left: 0.3125rem;
