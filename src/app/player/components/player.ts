@@ -11,19 +11,20 @@ export interface IMedia {
 @Component({
   selector: 'player',
   template: `
-    <!--<vg-player (onPlayerReady)="onPlayerReady($event)">-->
-      <!--&lt;!&ndash;<vg-buffering></vg-buffering>&ndash;&gt;-->
 
-      <!--&lt;!&ndash;<vg-controls>&ndash;&gt;-->
-        <!--&lt;!&ndash;<vg-play-pause></vg-play-pause>&ndash;&gt;-->
-        <!--&lt;!&ndash;<vg-playback-button></vg-playback-button>&ndash;&gt;-->
+    <vg-player>
+      <!--<vg-overlay-play [vgFor]="my-video"></vg-overlay-play>-->
 
-        <!--&lt;!&ndash;<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>&ndash;&gt;-->
+      <video #myMedia
+             [vgMedia]="myMedia"
+             id="my-video"
+             src="assets/media/nike.mp4"
+             autoplay
+             controls
+             loop
+             type="video/mp4">
+      </video>
 
-        <!--&lt;!&ndash;<vg-scrub-bar>&ndash;&gt;-->
-          <!--&lt;!&ndash;<vg-scrub-bar-current-time></vg-scrub-bar-current-time>&ndash;&gt;-->
-          <!--&lt;!&ndash;<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>&ndash;&gt;-->
-        <!--&lt;!&ndash;</vg-scrub-bar>&ndash;&gt;-->
 
         <!--&lt;!&ndash;<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>&ndash;&gt;-->
 

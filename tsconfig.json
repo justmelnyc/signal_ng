@@ -14,18 +14,18 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
 //    "baseUrl": "src",
 //    "paths": {
 //      "@core/*": ["core/*"],
 //      "@shared/*": ["app/shared/*"]
 //    ,
 //      "@env/*": ["environments/*"]
-    }
-//    "baseUrl": "src",
-//    "paths": {
-//      "@app/*": ["app/*"],
-//      "@env/*": ["environments/*"]
 //    }
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"]
+    }
   }
 }

@@ -74,6 +74,9 @@ import { Component } from '@angular/core';
         .sig-footer {
             bottom: 0;
         }
+      .footer-content {
+        height: 4rem;
+      }
     `]
 })
 export class FooterComponent {}
