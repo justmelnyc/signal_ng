@@ -48,25 +48,28 @@ import {AuthService} from '../../core/services/auth.service'
       <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
 
         <h3>New User Signup</h3>
+        <div class="form-group">
 
-        <label for="email">Email</label>
-        <input type="email" class="input" [class.is-danger]="email.invalid && email.dirty"
-               formControlName="email" required autocomplete="off">
+          <label for="email">Email</label>
+          <input type="email" class="input form-control" [class.is-invalid]="email.invalid && email.dirty"
+                 formControlName="email" required autocomplete="off">
 
 
-        <div *ngIf="email.invalid && email.dirty" class="notification is-danger">
-          Your email doesn't look quite right...
+          <div *ngIf="email.invalid && email.dirty" class="notification is-invalid">
+            Your email doesn't look quite right...
+          </div>
+
+          <label for="password">Password</label>
+          <input type="password" class="input form-control" [class.is-invalid]="password.invalid && password.touched"
+                 formControlName="password" required>
+
+          <div *ngIf="password.invalid && password.touched" class="notification is-invalid">
+            Password must be between 6 and 24 chars and have at least one number
+          </div>
+
+          <div *ngIf="signupForm.valid" class="notification is-valid">Form looks good! Let's do this.</div>
         </div>
 
-        <label for="password">Password</label>
-        <input type="password" class="input" [class.is-danger]="password.invalid && password.touched"
-               formControlName="password" required>
-
-        <div *ngIf="password.invalid && password.touched" class="notification is-danger">
-          Password must be between 6 and 24 chars and have at least one number
-        </div>
-
-        <div *ngIf="signupForm.valid" class="notification is-success">Form looks good! Let's do this.</div>
 
         <button type="submit" class="button is-primary" [disabled]="!signupForm.valid">Submit</button>
 
@@ -83,25 +86,32 @@ import {AuthService} from '../../core/services/auth.service'
         <!--<input type="test" class="input"-->
                <!--formControlName="username" required autocomplete="off">-->
 
+        <div class="form-group">
+          <label for="username">Username</label><br>
+          <input type="text" formControlName="username" required autocomplete="off" class="form-control input"
+                 [class.is-invalid]="username.invalid && username.dirty"
+                 [class.is-valid]="username.valid && username.dirty"><br>
 
-        <label for="username">Username</label><br>
-        <input type="text" formControlName="username" required autocomplete="off" class="form-control input"><br>
 
+          <div *ngIf="username.invalid && username.dirty"  class="notification invalid-feedback">
+            <strong>{{ username.value }}</strong> is already taken
+          </div>
 
-        <div *ngIf="username.invalid && username.dirty"  class="notification is-danger">
-        <strong>{{ username.value }}</strong> is already taken
+          <div *ngIf="username.valid" class="notification valid-feedback" >
+            <strong>{{ username.value }}</strong> is available
+          </div>
+
+          <div *ngIf="username.pending" class="notification info-feedback">
+            Hold tight... Checking availability of <strong>{{ username.value }}</strong>
+          </div>
+
+          <label for="fullname">Full Name</label><br>
+          <input type="text" formControlName="fullname" class="form-control input" required><br>
+          
         </div>
 
-        <div *ngIf="username.valid" class="notification is-success" >
-        <strong>{{ username.value }}</strong> is available
-        </div>
 
-        <div *ngIf="username.pending" class="notification is-info">
-        Hold tight... Checking availability of <strong>{{ username.value }}</strong>
-        </div>
 
-        <label for="fullname">Full Name</label><br>
-        <input type="text" formControlName="fullname" class="form-control input" required><br>
 
 
         <!--<button type="submit" class="button sig-button is-success" [disabled]="!detailForm.valid">Submit</button>-->

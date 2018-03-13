@@ -14,26 +14,31 @@ type FormErrors = { [u in UserFields]: string };
       <h3>Existing User Login</h3>
       <a class="btn button is-small" routerLink="/accounts-create">New Account?</a>
       <hr>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="input form-control"
+               formControlName="email" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" class="input"
-             formControlName="email" required >
+        <div *ngIf="formErrors.email" class="help is-invalid">
+          {{ formErrors.email }}
+        </div>
 
-      <div *ngIf="formErrors.email" class="help is-danger">
-        {{ formErrors.email }}
+        <label for="password">Password</label>
+        <input type="password" id="password" class="input form-control"
+               formControlName="password" required
+               >
+
+        <div *ngIf="formErrors.password" class="notification help invalid-feedback">
+          {{ formErrors.password }}
+        </div>
+
+
       </div>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" class="input"
-             formControlName="password" required >
+      
+      <button type="submit" class="button is-primary" [disabled]="!userForm.valid">Log In</button>
 
-      <div *ngIf="formErrors.password" class="help is-danger">
-        {{ formErrors.password }}
-      </div>
-
-      <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
-
-      <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
+      <span *ngIf="userForm.valid" class="help valid-feedback">Form Looks Valid</span>
 
       <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
       <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
@@ -66,6 +71,10 @@ export class AccountLoginComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private auth: AuthService) { }
+
+
+  get email() { return this.userForm.get('email') }
+  get password() { return this.userForm.get('password') }
 
   ngOnInit() {
     this.buildForm();
